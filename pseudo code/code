@@ -1,0 +1,55 @@
+1. game start button 
+  * Create a grid
+    #  15x15 with JS 
+  * should have a display of the players 3 lives
+    # Create a lives table and and update it if the player has been hit needs 3 statments 
+  * It should display 4 lines of alien in starting from the top of the grid 
+    # draw 4 lines of 10 alines 
+    # start the alien movement after 1 second -> delayed timer
+    # in that timer there should be a statement that checks if that player has shooted all aliens or the aliens reached the player 'game over' function
+  * middle lower grid where the weapon is start
+    # draw the weapon
+    # set up event listeners fot the keys 
+    # block the them to be of off the grid
+  * It should start an interwall at the same time 
+    # set up an interwall that changes every time a full cycle has completed 
+  * Sould have some music at the background
+  
+  
+
+2. game has started
+  * 4 lines of alien start moving starting to the right side all together
+    # alienMovement fucntion -> I don't know how 
+    # once they all wento to right and left they drop a line down -> check out 7/10 classwork cat 
+
+  * once they came back to the left side of the grid they should go down one line 
+    # check out 7/10 classwork cat -> make sure they disappear as they moving (disappear function)
+  * they should fire randomly to the players direction
+    # they should check if they hit the players fire and then both shoots should be destroyed 
+
+
+3. game has fininshed 
+
+  * Once the lines of aliens reach the line of the weapon 'Game Over'
+    # check if the aliens have reached the players the lowest grid (cat classwork) then gameOver function
+  * Once the aliens his the weapon 3 times 'Game Over
+    # if lives <= 3 then (game over function) compare it with player lives 
+  * Once the player has shot all aliens "You Win"
+    # if all alien dies the gameWin fucntion 
+  * player's score should be displayed at the ends
+    # after each shooted alien the scoreboard will update by one 
+  * sound when the aliens are shooting 
+
+  Gameover function will  have 2 functions in it both display the final score and generates a sound with 'Lost' or "Win"
+
+
+
+
+
+
+
+
+Extra :
+
+It should speed up as the aliens comes down one line 
+It should have 4 differnet lines of aliens and each gives a different score 
