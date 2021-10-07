@@ -1,21 +1,39 @@
+@font-face {
+  font-family: myfont;
+  src: url();
+}
+
 .grid {
-  width: 600px;
-  height: 600px;
-  border: 2px solid black;
+  width: 850px;
+  height: 400;
   display: flex;
   flex-wrap: wrap;
+  align-content: center;
+  margin-top: 20px;
 }
 
 .grid div {
   width: 40px;
-  height: 40px;
+  height: 30px;
   
+} 
+.score {
+  color: red;
+  font-family: myfont;
+  margin-top:10px;
+  font-size: 30px;
+}
+  
+.life, p {
+  color: red;
+  font-family: myfont;
+  font-size: 30px;
 }
 
 .alien {
   background-image: url('../assets/space-invaders-icons/saucer2b.ico');
   background-position: center;
-  border-radius
+  border-radius: 2px solid white;
   background-color: black
 }
 .player {
@@ -25,11 +43,14 @@
   background-color: black
 }
 body {
-  background-color: black;
+  margin: auto 0;
+  background-color:black;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 img {
-  margin-bottom: 50px;
+  margin-top: 20px;
 }
+
