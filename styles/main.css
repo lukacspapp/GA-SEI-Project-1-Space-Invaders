@@ -54,12 +54,39 @@ img {
 }
 .start-button {
   margin: 10px;
-  font-size: 20px;
-  border: 1px solid black;
-  width: 70px;
+  font-size: 30px;
+  border: 1px solid rgb(251, 255, 0);
+  width: 90px;
   text-align: center;
-  border-radius: 20px;
-  color: greenyellow;
-  background-color: grey;
+  border-radius: 10px;
+  color: rgb(251, 255, 0);
+  background-color: rgba(41, 3, 131, 0.8);
+  outline: none;
+  transition: ease-out 0.4s;
+}
+.start-button:hover{
+  cursor: pointer;
+  background-color: rgb(251, 255, 0); 
+  color: rgba(41, 3, 131, 0.8);
+  outline: none;
+  z-index: 1;
+}
+.start-buttons:before {
+  transition: 0.5s all ease;
+  position: center;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  background-color: brown;
+  content: '';
+}
+.start-button:hover:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
 }
 

@@ -6,8 +6,11 @@ function init() {
   const height = 22.7
   const cellCount = width * height
   const cells = []
-  // ----- sound
-  const backgroundMusic = document.querySelector('audio')
+
+
+
+
+
   // ------ start button, score and lives
   const startButton = document.querySelector('.start-button')
   console.log(startButton)
@@ -27,29 +30,30 @@ function init() {
 
 
   //-----Livescore
-  let livesScore = document.querySelector('span')
+  let livesRemaining = 3
+  let currentScore = 0
   
+
   
   //----Alien
-  
-  const alienClass = 'alien'
-  // const alienStartingPosition = 4
-  // let alienCurrentPosition = 0  
-  const aliens = [ 4,
-    5,6,7,8,9,11,12,13,14,15,16
-    ,24,25,26,27,28,29,30,32,33,34,35,36,37,38
-    ,45,46,47,48,49,50,51,53,54,55,56,57,58,59,
-    67,68,69,70,71,72,74,75,76,77,78,79
+  let direction = 1
+  const alienClass = 'alien'  
+  let aliensCurrentPositon
+  const aliensStartingPosition = [ 
+    3,4,5,6,7,8,9,11,12,13,14,15,16,17
+    ,25,26,27,28,29,30,32,33,34,35,36,37
+    ,46,47,48,49,50,51,53,54,55,56,57,58,
+    66,67,68,69,70,71,72,74,75,76,77,78,79,80
     
   ]
   // ---- Add Alien and Remove Alien
   function addAlien() {
-    for (let i = 0; i < aliens.length; i++)
-      cells[aliens[i]].classList.add(alienClass)
+    for (let i = 0; i < aliensStartingPosition.length; i++) 
+      cells[aliensStartingPosition[i]].classList.add(alienClass)
   }
   function removeAlien() {
-    for (let i = 0; i < aliens.length; i++)
-      cells[aliens[i]].classList.remove(alienClass)
+    for (let i = 0; i < aliensStartingPosition.length; i++)
+      cells[aliensStartingPosition[i]].classList.remove(alienClass)
   }
   
 
@@ -64,7 +68,7 @@ function init() {
       cells.push(cell)
     }
     addPlayer(playerStartingPosition)
-    addAlien(aliens)
+    addAlien(aliensStartingPosition)
   }
   // ---- Start Game function
 
@@ -108,17 +112,21 @@ function init() {
 
   // ---- Aliens Movement 
   function alienMovement () {
-
-
+    const leftSide = aliensStartingPosition[0] % height !== 2.300000000000008
+    const rightSide = aliensStartingPosition[aliensStartingPosition.length - 1] % height !== 22.300000000000008
     removeAlien()
+
+    for (let i = 0; i < aliensStartingPosition.length; i++) {
+      aliensStartingPosition[i] += 1
+    }
+
+    addAlien
   }
 
+  
 
 
-
-  startButton.addEventListener('click', startGame)
-
-  document.addEventListener('keyup', handlePlayerKey)
+  document.addEventListener('keydown', handlePlayerKey)
 
   createGrid(playerStartingPosition)
 
