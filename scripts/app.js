@@ -8,7 +8,18 @@ function init() {
   const cells = []
   // ----- sound
   const backgroundMusic = document.querySelector('audio')
+  // ------ start button, score and lives
+  const startButton = document.querySelector('.start-button')
+  console.log(startButton)
+  const scoreDisplay = document.querySelector('.scores')
+  console.log(scoreDisplay)
+  const lives = document.querySelector('.life')
+  console.log(lives)
 
+
+
+  
+  
   //-----Player
   const playerStartingPosition = 262
   let playerCurrentPosition = 262
@@ -19,20 +30,31 @@ function init() {
   let livesScore = document.querySelector('span')
   
   
-  // //----Alien
+  //----Alien
   
-  // const alienClass = 'alien'
+  const alienClass = 'alien'
   // const alienStartingPosition = 4
   // let alienCurrentPosition = 0  
-  // const aliens = [ 4
-  //   5,6,7,8,9,11,12,13,14,15,16
-  //   ,24,25,26,27,28,29,30,32,33,34,35,36,37,38
-  //   ,45,46,47,48,49,50,51,53,54,55,56,57,58,59,
-  //   67,68,69,70,71,72,74,75,76,77,78,79
+  const aliens = [ 4,
+    5,6,7,8,9,11,12,13,14,15,16
+    ,24,25,26,27,28,29,30,32,33,34,35,36,37,38
+    ,45,46,47,48,49,50,51,53,54,55,56,57,58,59,
+    67,68,69,70,71,72,74,75,76,77,78,79
     
-  // ]
+  ]
+  // ---- Add Alien and Remove Alien
+  function addAlien() {
+    for (let i = 0; i < aliens.length; i++)
+      cells[aliens[i]].classList.add(alienClass)
+  }
+  function removeAlien() {
+    for (let i = 0; i < aliens.length; i++)
+      cells[aliens[i]].classList.remove(alienClass)
+  }
+  
 
-  // // -----
+
+  // ----- Create Grid
 
   function createGrid(playerStartingPosition) {
     for (let i = 0; i < cellCount; i++) {
@@ -42,12 +64,20 @@ function init() {
       cells.push(cell)
     }
     addPlayer(playerStartingPosition)
-    // addAlien(alienStartingPosition)
+    addAlien(aliens)
   }
+  // ---- Start Game function
+
+
+  function startGame() {
+
+  }
+
+
+
 
   // ---- Add Player and Remove Player 
   function addPlayer(playerPosition) {  
-    // console.log('playerposition', playerPosition)
     cells[playerPosition].classList.add(playerClass)
   }
   
@@ -55,24 +85,10 @@ function init() {
     cells[playerPosition].classList.remove(playerClass)
   }
   // -----------------------------------
-
-  
-  // // ---- Add Alien and Remove Alien
-  // function addAlien() {
-  //   for (let i = 0; i < aliens.length; i++)
-  //     cells[aliens].classList.add(alienClass)
-  // }
-
-  // function removeAlien() {
-  //   cells[aliens].classList.remove(alienClass)
-  // }
-  // // ---------------------------------
-
-
+  // ------ Player movement 
   function handlePlayerKey(event) {
     console.log(playerCurrentPosition)
     const key = event.keyCode
-    console.log('playerCurrentPosition % heigth', playerCurrentPosition % height)
 
 
 
@@ -89,13 +105,18 @@ function init() {
     addPlayer(playerCurrentPosition)
     // console.log(playerCurrentPosition)
   }
-  
-  
+
+  // ---- Aliens Movement 
+  function alienMovement () {
+
+
+    removeAlien()
+  }
 
 
 
 
-
+  startButton.addEventListener('click', startGame)
 
   document.addEventListener('keyup', handlePlayerKey)
 

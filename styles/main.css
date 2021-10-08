@@ -20,7 +20,6 @@
 .score {
   color: red;
   font-family: myfont;
-  margin-top:10px;
   font-size: 30px;
 }
   
@@ -52,5 +51,15 @@ body {
 }
 img {
   margin-top: 20px;
+}
+.start-button {
+  margin: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+  width: 70px;
+  text-align: center;
+  border-radius: 20px;
+  color: greenyellow;
+  background-color: grey;
 }
 
