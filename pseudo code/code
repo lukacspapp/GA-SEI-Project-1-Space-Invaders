@@ -1,16 +1,17 @@
 1. game start button 
   * Create a grid
-    #  15x15 with JS 
+    #  15x15 with JS X
   * should have a display of the players 3 lives
-    # Create a lives table and and update it if the player has been hit needs 3 statments 
-  * It should display 4 lines of alien in starting from the top of the grid 
+    # Create a lives table and and update it if the player has been hit needs 3 statments - write a fucntion lostLife that will check if the condition the player got hit and update the life result accordingly
+  * It should display 4 lines of alien in starting from the top of the grid -> create a start button that will start a delayed timer (how to back the whole page a bit greyed out for )
     # draw 4 lines of 10 alines 
-    # start the alien movement after 1 second -> delayed timer
+    # start the alien movement after 1 second -> delayed how to start moving the aliens? how to calculate when they should drop a line? the cat classwork will somehow show how to calculate the movement of them
     # in that timer there should be a statement that checks if that player has shooted all aliens or the aliens reached the player 'game over' function
+    # randomly chooses the aliengrid to drop a bomb in every 0.5 second is this a different intervall?
   * middle lower grid where the weapon is start
     # draw the weapon
-    # set up event listeners fot the keys 
-    # block the them to be of off the grid
+    # set up event listeners fot the keys to move the weapon (left,right, up for shooting) movePlayer function
+    # block the them to be of off the grid (cat classwork)
   * It should start an interwall at the same time 
     # set up an interwall that changes every time a full cycle has completed 
   * Sould have some music at the background
