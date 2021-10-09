@@ -35,6 +35,7 @@ function init() {
   
 
   
+  
   //----Alien
   let direction = 1
   const alienClass = 'alien'  
@@ -63,7 +64,7 @@ function init() {
   function createGrid(playerStartingPosition) {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
-      cell.innerText = i
+      // cell.innerText = i
       grid.appendChild(cell)
       cells.push(cell)
     }
@@ -74,10 +75,15 @@ function init() {
 
 
   function startGame() {
+    
+    createGrid(playerStartingPosition)
+    addPlayer(playerStartingPosition)
+    addAlien(aliensStartingPosition)
+    alienMovement()
 
   }
 
-
+  
 
 
   // ---- Add Player and Remove Player 
@@ -110,26 +116,28 @@ function init() {
     // console.log(playerCurrentPosition)
   }
 
+
   // ---- Aliens Movement 
   function alienMovement () {
-    const leftSide = aliensStartingPosition[0] % height !== 2.300000000000008
-    const rightSide = aliensStartingPosition[aliensStartingPosition.length - 1] % height !== 22.300000000000008
+    // const leftSide = aliensStartingPosition[0] % height !== 2.300000000000008
+    // const rightSide = aliensStartingPosition[aliensStartingPosition.length - 1] % height !== 22.300000000000008
     removeAlien()
 
     for (let i = 0; i < aliensStartingPosition.length; i++) {
       aliensStartingPosition[i] += 1
     }
 
-    addAlien
+    addAlien()
+    setInterval(alienMovement, 1500)
   }
-
+  // setInterval(alienMovement, 500)
   
 
 
   document.addEventListener('keydown', handlePlayerKey)
 
   createGrid(playerStartingPosition)
-
+  startButton.addEventListener('click', startGame)
 
 
 }
