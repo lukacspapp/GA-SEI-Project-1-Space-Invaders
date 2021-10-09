@@ -46,17 +46,19 @@ function init() {
 
   const alienClass = 'alien'  
   let aliensCurrentPositon
-  const aliensStartingPosition = [ 3,
-    4,5,6,7,8,9,11,12,13,14,15,16,17
-    ,25,26,27,28,29,30,32,33,34,35,36,37
-    ,46,47,48,49,50,51,53,54,55,56,57,58,
-    66,67,68,69,70,71,72,74,75,76,77,78,79,80
+  const aliensStartingPosition = [3
+    // 4,5,6,7,8,9,11,12,13,14,15,16
+    // ,25,26,27,28,29,30,32,33,34,35,36,37
+    // ,46,47,48,49,50,51,53,54,55,56,57,58,
+    // 67,68,69,70,71,72,74,75,76,77,78,79
+    // ,80,17,3,66
     
   ]
   // ---- Add Alien and Remove Alien
   function addAlien() {
     for (let i = 0; i < aliensStartingPosition.length; i++) 
       cells[aliensStartingPosition[i]].classList.add(alienClass)
+    
   }
   function removeAlien() {
     for (let i = 0; i < aliensStartingPosition.length; i++)
@@ -86,7 +88,7 @@ function init() {
     addPlayer(playerStartingPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    setInterval(alienMovement, 1000) 
+    let alienInterwall = setInterva(alienMovement, 100) 
 
 
   }
@@ -127,19 +129,25 @@ function init() {
 
   // ---- Aliens Movement 
   function alienMovement () {
-    const rightSide = (aliensStartingPosition[0] % 42) === 20
-    const rightSide2 = (aliensStartingPosition[0] % 42) === 41
+    const rightSide = aliensStartingPosition[0] % 21.300000000000008 === 20
+    const leftSide = aliensStartingPosition[0] % 21.300000000000008  === 21
 
     removeAlien()
 
-  
+    if (rightSide) {
+      for (let i = 0; i < aliensStartingPosition.length; i++) {
+        aliensStartingPosition[1] += width - 1
+        right = -1
+        console.log(aliensStartingPosition[i] % width - 1)
+      }
+    }
     
 
     for (let i = 0; i < aliensStartingPosition.length; i++) {
       aliensStartingPosition[i] += right 
-      console.log(aliensStartingPosition[i])
+      
     
-    
+      console.log(aliensStartingPosition[i] % 21.300000000000008) 
     }
 
     addAlien()
