@@ -88,7 +88,7 @@ function init() {
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    alienInterwall = setInterval(alienMovement, 100)
+    alienInterwall = setInterval(alienMovement, 10)
     
 
     
@@ -96,6 +96,7 @@ function init() {
   // ----- Game Over function
   function gameOver() {
     clearInterval(alienInterwall)
+    scoreDisplay.innerHTML = 'You Lost'
   }
 
 
@@ -162,16 +163,13 @@ function init() {
       console.log(aliensStartingPosition)
     }
     if  (aliensStartingPosition.includes(playerCurrentPosition)) {
-      clearInterval(alienInterwall)
+      gameOver()
     }
     
     addAlien()
     
   
-    // if  (playerCurrentPosition === 256) {
-    //   clearInterval(alienInterwall)
-    // }
-
+  
   }
   
   
