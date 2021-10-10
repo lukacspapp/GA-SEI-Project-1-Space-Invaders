@@ -45,7 +45,7 @@ function init() {
 
 
   const alienClass = 'alien'  
-  let aliensCurrentPositon
+  let aliensCurrentPositon = []
   const aliensStartingPosition = [
     4,5,6,7,8,9,11,12,13,14,15,16
     ,25,26,27,28,29,30,32,33,34,35,36,37
@@ -58,6 +58,7 @@ function init() {
   function addAlien() {
     for (let i = 0; i < aliensStartingPosition.length; i++) 
       cells[aliensStartingPosition[i]].classList.add(alienClass)
+    
     
   }
   function removeAlien() {
@@ -81,18 +82,16 @@ function init() {
   }
   // ---- Start Game function
 
-   
   function startGame() {
     
 
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    setInterval(alienMovement, 100)
-
+    alienInterwall = setInterval(alienMovement, 100)
     
 
-
+    
   }
   // ----- Game Over function
   function gameOver() {
@@ -124,7 +123,8 @@ function init() {
     } else if (key === 37 && playerCurrentPosition % height !== 2.300000000000008) {
       console.log('LEFT')
       playerCurrentPosition--
-    }
+    } 
+    
 
     addPlayer(playerCurrentPosition)
     // console.log(playerCurrentPosition)
@@ -151,30 +151,32 @@ function init() {
         right = 1
         rightWay = true
       }
-    }  
-    if (cells[playerCurrentPosition].classList.contains('alien', 'player')) {
-      console.log('Game over')
-      clearInterval(myInterwall)
     }
+    
+    console.log('playerposition', cells[playerCurrentPosition].innerText)
 
+    
     for (let i = 0; i < aliensStartingPosition.length; i++) {
       aliensStartingPosition[i] += right 
       
-    
-      console.log(aliensStartingPosition[aliensStartingPosition.length - 1]) 
+      console.log(aliensStartingPosition)
     }
-    
+    if  (playerCurrentPosition === 256) {
+      clearInterval(alienInterwall)
+    }
     
     addAlien()
     
   
-
+    // if  (playerCurrentPosition === 256) {
+    //   clearInterval(alienInterwall)
+    // }
 
   }
   
   
-  
 
+  
 
   document.addEventListener('keydown', handlePlayerKey)
 
