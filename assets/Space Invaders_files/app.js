@@ -11,7 +11,7 @@ function init() {
     
   let right = 1
   let alienInerwall
-  let rightWay = true
+
 
 
   
@@ -46,11 +46,11 @@ function init() {
 
   const alienClass = 'alien'  
   let aliensCurrentPositon
-  const aliensStartingPosition = [
-    4,5,6,7,8,9,11,12,13,14,15,16
-    ,25,26,27,28,29,30,32,33,34,35,36,37
-    ,46,47,48,49,50,51,53,54,55,56,57,58,
-    67,68,69,70,71,72,74,75,76,77,78,79
+  const aliensStartingPosition = [3
+    // 4,5,6,7,8,9,11,12,13,14,15,16
+    // ,25,26,27,28,29,30,32,33,34,35,36,37
+    // ,46,47,48,49,50,51,53,54,55,56,57,58,
+    // 67,68,69,70,71,72,74,75,76,77,78,79
     // ,80,17,3,66
     
   ]
@@ -129,30 +129,25 @@ function init() {
 
   // ---- Aliens Movement 
   function alienMovement () {
-    const rightSide = aliensStartingPosition[aliensStartingPosition.length - 1] % height * width  === 178.8 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 158.40000000000003 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 138.00000000000006 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width  === 117.60000000000005 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width  === 97.20000000000006 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 76.80000000000007 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 56.40000000000008 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 36.000000000000085 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 15.600000000000094
-    const leftSide = aliensStartingPosition[0] % height * width === 252 || aliensStartingPosition[0] % height * width === 231.60000000000002 || aliensStartingPosition[0] % height * width === 211.20000000000002 || aliensStartingPosition[0] % height * width === 190.8 || aliensStartingPosition[0] % height * width === 170.40000000000003 || aliensStartingPosition[0] % height * width === 150.00000000000006 || aliensStartingPosition[0] % height * width === 129.60000000000005 || aliensStartingPosition[0] % height * width === 109.20000000000006
+    const rightSide = aliensStartingPosition[0] % 21.300000000000008 === 20
+    const leftSide = aliensStartingPosition[0] % 21.300000000000008  === 21
+
     removeAlien()
 
-    if (rightSide && rightWay) {
+    if (rightSide) {
       for (let i = 0; i < aliensStartingPosition.length; i++) {
-        aliensStartingPosition[i] += 22
+        aliensStartingPosition[0] += 21
         right = -1
-        rightWay = false
-        
-      } 
-    }
-    if (leftSide && !rightWay) {
-      for (let i = 0; i < aliensStartingPosition.length; i++) {
-        aliensStartingPosition[i] += 20
-        right = 1
-        rightWay = true
+        console.log(aliensStartingPosition[i] % width - 1)
       }
-    }  
+    }
+    
+
     for (let i = 0; i < aliensStartingPosition.length; i++) {
       aliensStartingPosition[i] += right 
       
     
-      console.log(aliensStartingPosition[aliensStartingPosition.length - 1] % height * width) 
+      console.log(aliensStartingPosition[i] % 21.300000000000008) 
     }
 
     addAlien()
