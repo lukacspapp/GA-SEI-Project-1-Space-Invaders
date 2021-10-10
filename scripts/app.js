@@ -10,11 +10,12 @@ function init() {
   // -----Alien Movement
     
   let right = 1
-  let alienInerwall
+  let alienInterwall
   let rightWay = true
 
 
-  
+  const rightEdge = [84, 105, 126, 147, 168, 189, 210, 231, 252]
+  const leftEdge = [0, 23, 44, 65, 86, 107, 128, 149, 170, 191, 212, 233]
 
   // ------ start button, score and lives
   const startButton = document.querySelector('.start-button')
@@ -29,7 +30,6 @@ function init() {
   
   
   //-----Player
-  const playerStartingPosition = 262
   let playerCurrentPosition = 262
   const playerClass = 'player'
 
@@ -69,31 +69,35 @@ function init() {
 
   // ----- Create Grid
 
-  function createGrid(playerStartingPosition) {
+  function createGrid(playerCurrentPosition) {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
       cell.innerText = i
       grid.appendChild(cell)
       cells.push(cell)
     }
-    addPlayer(playerStartingPosition)
+    addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
   }
   // ---- Start Game function
 
-
+   
   function startGame() {
     
 
-    addPlayer(playerStartingPosition)
+    addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    let alienInterwall = setInterval(alienMovement, 100) 
+    setInterval(alienMovement, 100)
+
+    
 
 
   }
-
-  
+  // ----- Game Over function
+  function gameOver() {
+    clearInterval(alienInterwall)
+  }
 
 
   // ---- Add Player and Remove Player 
@@ -148,24 +152,33 @@ function init() {
         rightWay = true
       }
     }  
+    if (cells[playerCurrentPosition].classList.contains('alien', 'player')) {
+      console.log('Game over')
+      clearInterval(myInterwall)
+    }
+
     for (let i = 0; i < aliensStartingPosition.length; i++) {
       aliensStartingPosition[i] += right 
       
     
-      console.log(aliensStartingPosition[aliensStartingPosition.length - 1] % height * width) 
+      console.log(aliensStartingPosition[aliensStartingPosition.length - 1]) 
     }
-
+    
+    
     addAlien()
-    // setInterval(alienMovement, 2000)  
+    
+  
+
+
   }
-
-
-
+  
+  
+  
 
 
   document.addEventListener('keydown', handlePlayerKey)
 
-  createGrid(playerStartingPosition)
+  createGrid(playerCurrentPosition)
   startButton.addEventListener('click', startGame, alienMovement)
 
 
