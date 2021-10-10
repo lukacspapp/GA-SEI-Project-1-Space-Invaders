@@ -161,7 +161,7 @@ function init() {
       
       console.log(aliensStartingPosition)
     }
-    if  (playerCurrentPosition === 256) {
+    if  (aliensStartingPosition.includes(playerCurrentPosition)) {
       clearInterval(alienInterwall)
     }
     
