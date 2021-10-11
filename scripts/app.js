@@ -88,7 +88,10 @@ function init() {
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    alienInterwall = setInterval(alienMovement, 10)
+    alienInterwall = setInterval(alienMovement, 100)
+    
+    
+    
     
 
     
@@ -111,7 +114,7 @@ function init() {
   // -----------------------------------
   // ------ Player movement 
   function handlePlayerKey(event) {
-    console.log(playerCurrentPosition)
+    // console.log(playerCurrentPosition)
     const key = event.keyCode
 
 
@@ -167,12 +170,32 @@ function init() {
     }
     
     addAlien()
+  }
+  // ----- Shooting and laser
+  function handleShootingKey(e) {
+    let laserInterval
+    let laser = playerCurrentPosition - 21
     
-  
-  
+    function handleLaser() {
+      cells[laser].classList.remove('laser')
+      laser -= 21
+      cells[laser].classList.add('laser')
+      console.log(laser)
+      if (cells[laser].classList.contains('alien')) {
+        cells[laser].classList.remove('laser')
+        cells[laser].classList.remove('alien')
+        cells[laser].classList.add('boom')
+        
+      }
+      // handleShootingKey()
+    }
+    if (e.keyCode === 32) {
+      console.log('UP')
+      laserInterval = setInterval(handleLaser, 100)
+    }
   }
   
-  
+  document.addEventListener('keydown', handleShootingKey)
 
   
 
