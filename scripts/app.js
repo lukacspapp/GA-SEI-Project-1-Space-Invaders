@@ -184,12 +184,11 @@ function init() {
       if (cells[laser].classList.contains('alien')) {
         cells[laser].classList.remove('laser')
         cells[laser].classList.remove('alien')
-        cells[laser].classList.add('boom')
-        
+        cells[laser].classList.add('bom')
       }
       // handleShootingKey()
     }
-    if (e.keyCode === 32) {
+    if (e.keyCode === 38) {
       console.log('UP')
       laserInterval = setInterval(handleLaser, 100)
     }
