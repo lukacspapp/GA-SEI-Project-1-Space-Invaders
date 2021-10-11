@@ -1,6 +1,7 @@
 function init() {
 
   // -----Grid
+  const main = document.querySelector('.main')
   const body = document.querySelector('body')
   const grid = document.querySelector('.grid')
   const width = 12
@@ -107,7 +108,7 @@ function init() {
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    alienInterwall = setInterval(alienMovement, 100)
+    alienInterwall = setInterval(alienMovement, 10)
     
     
     
@@ -120,8 +121,10 @@ function init() {
     clearInterval(alienInterwall)
     scoreDisplay.innerHTML = 'You Lost'
     body.classList.add('game-over')
+    cells[playerCurrentPosition].classList.add('player-die')
     playerDieSound()
   }
+  console.log(playerCurrentPosition)
 
 
   // ---- Add Player and Remove Player 
@@ -178,8 +181,6 @@ function init() {
       }
     }
     
-    console.log('playerposition', cells[playerCurrentPosition].innerText)
-
     
     for (let i = 0; i < aliensStartingPosition.length; i++) {
       aliensStartingPosition[i] += right 

@@ -32,9 +32,9 @@
 }
 
 .alien {
-  background-image: url('../assets/spaceinvaders-videogames.gif');
+  /* background-image: url('../assets/spaceinvaders-videogames.gif'); */
   /* background-position: center; */
-  /* background-image: url('../assets/367629_invader_space-invaders_game_space\ invaders_icon\ \(2\).png'); */
+  background-image: url('../assets/367629_invader_space-invaders_game_space\ invaders_icon\ \(2\).png');
   background-position: center;
   border-radius: 2px solid white;
   /* background-color: black */
@@ -95,4 +95,10 @@ img {
 .bom {
 background-color: orange;
 border-radius: 20px;
+}
+.player-die {
+  display: none
+}
+main {
+  display: contents;
 }
