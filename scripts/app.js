@@ -1,12 +1,12 @@
 function init() {
 
   // -----Grid
+  const body = document.querySelector('body')
   const grid = document.querySelector('.grid')
   const width = 12
   const height = 22.7
   const cellCount = width * height
   const cells = []
-
   // -----Alien Movement
     
   let right = 1
@@ -34,6 +34,7 @@ function init() {
   const playerClass = 'player'
 
 
+
   //-----Livescore
   let livesRemaining = 3
   let currentScore = 0
@@ -51,7 +52,7 @@ function init() {
     ,25,26,27,28,29,30,32,33,34,35,36,37
     ,46,47,48,49,50,51,53,54,55,56,57,58,
     67,68,69,70,71,72,74,75,76,77,78,79
-    // ,80,17,3,66
+    
     
   ]
   // ---- Add Alien and Remove Alien
@@ -65,7 +66,25 @@ function init() {
     for (let i = 0; i < aliensStartingPosition.length; i++)
       cells[aliensStartingPosition[i]].classList.remove(alienClass)
   }
-  
+  // ---- Alien hit function sound
+  const alienDie = document.querySelector('.alien-hit')
+  function alienHitSound() {
+    alienDie.src = 'assets/invaderkilled.wav'
+    alienDie.play()
+  }
+  // ---- shooting sound
+  const shootingSound = document.querySelector('.shooting-sound')
+  function playerShootingSound() {
+    shootingSound.src = 'assets/shoot.wav'
+    shootingSound.play()
+  }
+  // ---- Player Dying sound
+  const playerDeadSound = document.querySelector('.game-over-explosion')
+  function playerDieSound() {
+    playerDeadSound.src = 'assets/explosion.wav'
+    playerDeadSound.play()
+  }
+
 
 
   // ----- Create Grid
@@ -100,6 +119,8 @@ function init() {
   function gameOver() {
     clearInterval(alienInterwall)
     scoreDisplay.innerHTML = 'You Lost'
+    body.classList.add('game-over')
+    playerDieSound()
   }
 
 
@@ -174,7 +195,7 @@ function init() {
   // ----- Shooting and laser
   function handleShootingKey(e) {
     let laserInterval
-    let laser = playerCurrentPosition - 21
+    let laser = playerCurrentPosition 
     
     function handleLaser() {
       cells[laser].classList.remove('laser')
@@ -185,12 +206,18 @@ function init() {
         cells[laser].classList.remove('laser')
         cells[laser].classList.remove('alien')
         cells[laser].classList.add('bom')
+        scoreDisplay.innerHTML = currentScore
+        currentScore += 100
+        alienHitSound()
+        
+
       }
-      // handleShootingKey()
+      
     }
     if (e.keyCode === 38) {
       console.log('UP')
-      laserInterval = setInterval(handleLaser, 100)
+      laserInterval = setInterval(handleLaser, 90)
+      playerShootingSound()
     }
   }
   
