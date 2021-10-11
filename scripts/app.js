@@ -25,6 +25,7 @@ function init() {
   console.log(scoreDisplay)
   const lives = document.querySelector('.life')
   console.log(lives)
+  const livesDisplay = document.querySelector('p')
 
 
 
@@ -108,7 +109,7 @@ function init() {
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    alienInterwall = setInterval(alienMovement, 10)
+    alienInterwall = setInterval(alienMovement, 100)
     
     
     
@@ -123,6 +124,8 @@ function init() {
     body.classList.add('game-over')
     cells[playerCurrentPosition].classList.add('player-die')
     playerDieSound()
+    lives.innerHTML = ' '
+    livesDisplay.innerHTML = 'You Are Alien Food'
   }
   console.log(playerCurrentPosition)
 
