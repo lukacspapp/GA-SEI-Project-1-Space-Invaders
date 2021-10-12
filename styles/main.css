@@ -32,12 +32,13 @@
 }
 
 .alien {
-  /* background-image: url('../assets/spaceinvaders-videogames.gif'); */
+  background: url('../assets/giphy.gif');
   /* background-position: center; */
-  background-image: url('../assets/367629_invader_space-invaders_game_space\ invaders_icon\ \(2\).png');
-  background-position: center;
-  border-radius: 2px solid white;
+  /* background-image: url('../assets/367629_invader_space-invaders_game_space\ invaders_icon\ \(2\).png'); */
+  /* background-position: center; */
+  /* border-radius: 2px solid white; */
   /* background-color: black */
+  background-size: cover;
 }
 .player {
   background-image: url('../assets/space-invaders\ \(1\).png');
@@ -88,7 +89,7 @@ img {
   background: rgb(225, 0, 255) 50% 
 }
 .score {
-  color: white
+  color: black
 }
 .game-over {
   /* display: none; */

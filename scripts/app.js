@@ -93,8 +93,14 @@ function init() {
     gameEnd.src = 'assets/76376__deleted-user-877451__game-over.wav'
     gameEnd.play()
   }
-
-
+  // ---- Game background music
+  const backgroundsound = document.querySelector('.background-music')
+  function backgroundMusic() {
+    backgroundsound.src = 'assets/05_Earth.wav'
+    backgroundsound.volume = 0.15
+    backgroundsound.play()  
+  }
+  
 
   // ----- Create Grid
 
@@ -117,6 +123,7 @@ function init() {
     addAlien(aliensStartingPosition)
     alienMovement()
     alienInterwall = setInterval(alienMovement, 100)
+    backgroundMusic()
     
     
     
@@ -134,6 +141,11 @@ function init() {
     playerDieSound()
     lives.innerHTML = ' '
     livesDisplay.innerHTML = 'You Are Alien Food'
+    backgroundsound.src = ''
+    
+    
+
+
   }
   console.log(playerCurrentPosition)
 
@@ -245,7 +257,8 @@ function init() {
 
   createGrid(playerCurrentPosition)
   startButton.addEventListener('click', startGame, alienMovement)
-
+  
+  
 
 }
 
