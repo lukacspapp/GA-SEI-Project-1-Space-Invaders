@@ -1,6 +1,7 @@
 function init() {
 
   // -----Grid
+  const video = document.querySelector('.video')
   const main = document.querySelector('.main')
   const body = document.querySelector('body')
   const grid = document.querySelector('.grid')
@@ -78,7 +79,7 @@ function init() {
   // ---- shooting sound
   const shootingSound = document.querySelector('.shooting-sound')
   function playerShootingSound() {
-    shootingSound.src = 'assets/shoot.wav'
+    shootingSound.src = 'assets/perfect-fart.wav'
     shootingSound.play()
   }
   // ---- Player Dying sound
@@ -90,7 +91,8 @@ function init() {
   // ---- Game End Sound 
   const gameEnd = document.querySelector('.game-end')
   function gameEndSound() {
-    gameEnd.src = 'assets/76376__deleted-user-877451__game-over.wav'
+    gameEnd.src = 'assets/evillaugh.swf.wav'
+    // gameEnd.src = 'assets/76376__deleted-user-877451__game-over.wav'
     gameEnd.play()
   }
   // ---- Game background music
@@ -107,7 +109,7 @@ function init() {
   function createGrid(playerCurrentPosition) {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
-      cell.innerText = i
+      // cell.innerText = i
       grid.appendChild(cell)
       cells.push(cell)
     }
@@ -142,7 +144,9 @@ function init() {
     lives.innerHTML = ' '
     livesDisplay.innerHTML = 'You Are Alien Food'
     backgroundsound.src = ''
-    
+    // const gameOverGif = document.createElement('img')
+    // gameOverGif.src = 'assets/game over 3.gif'
+    // document.body.appendChild(gameOverGif)
     
 
 
@@ -229,26 +233,31 @@ function init() {
       if (cells[laser].classList.contains('alien')) {
         cells[laser].classList.remove('laser')
         cells[laser].classList.remove('alien')
-        cells[laser].classList.add('bom')
+        cells[laser].classList.add('bom')        
+        setTimeout(()=> cells[laser].classList.remove('bom'), 200)
+        clearInterval(laserInterval)        
+
         scoreDisplay.innerHTML = currentScore
         currentScore += 100
         alienHitSound()
         console.log(aliensStartingPosition)
       }
       if (cells[laser].classList.contains('alien') && cells[laser].classList.contains('laser')) {
-        cells[laser].remove(aliensStartingPosition)
+        cells[laser].classList.remove('alien')
       }
-      
+      if (cells[aliensStartingPosition].classList.contains('bom') && aliensCurrentPositon) {
+        cells[aliensStartingPosition].classList.remove('bom')
+      }
+    
     }
     if (e.keyCode === 38) {
       console.log('UP')
-      laserInterval = setInterval(handleLaser, 90)
+      laserInterval = setInterval(handleLaser, 30)
       playerShootingSound()
       
     }
-
+    
   } 
-  
   document.addEventListener('keydown', handleShootingKey)
 
   
