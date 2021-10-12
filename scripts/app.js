@@ -60,12 +60,13 @@ function init() {
   // ---- Add Alien and Remove Alien
   function addAlien() {
     for (let i = 0; i < aliensStartingPosition.length; i++) 
+    
       cells[aliensStartingPosition[i]].classList.add(alienClass)
     
     
   }
   function removeAlien() {
-    for (let i = 0; i < aliensStartingPosition.length; i++)
+    for (let i = 0; i < aliensStartingPosition.length; i++) 
       cells[aliensStartingPosition[i]].classList.remove(alienClass)
   }
   // ---- Alien hit function sound
@@ -85,6 +86,12 @@ function init() {
   function playerDieSound() {
     playerDeadSound.src = 'assets/explosion.wav'
     playerDeadSound.play()
+  }
+  // ---- Game End Sound 
+  const gameEnd = document.querySelector('.game-end')
+  function gameEndSound() {
+    gameEnd.src = 'assets/76376__deleted-user-877451__game-over.wav'
+    gameEnd.play()
   }
 
 
@@ -123,6 +130,7 @@ function init() {
     scoreDisplay.innerHTML = 'You Lost'
     body.classList.add('game-over')
     cells[playerCurrentPosition].classList.add('player-die')
+    setTimeout(gameEndSound, 1000)
     playerDieSound()
     lives.innerHTML = ' '
     livesDisplay.innerHTML = 'You Are Alien Food'
@@ -213,8 +221,10 @@ function init() {
         scoreDisplay.innerHTML = currentScore
         currentScore += 100
         alienHitSound()
-        
-
+        console.log(aliensStartingPosition)
+      }
+      if (cells[laser].classList.contains('alien') && cells[laser].classList.contains('laser')) {
+        cells[laser].remove(aliensStartingPosition)
       }
       
     }
@@ -222,8 +232,10 @@ function init() {
       console.log('UP')
       laserInterval = setInterval(handleLaser, 90)
       playerShootingSound()
+      
     }
-  }
+
+  } 
   
   document.addEventListener('keydown', handleShootingKey)
 
