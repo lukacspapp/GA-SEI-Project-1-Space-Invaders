@@ -61,14 +61,16 @@ function init() {
   // ---- Add Alien and Remove Alien
   function addAlien() {
     for (let i = 0; i < aliensStartingPosition.length; i++) 
-    
       cells[aliensStartingPosition[i]].classList.add(alienClass)
-    
-    
+
+      
   }
   function removeAlien() {
     for (let i = 0; i < aliensStartingPosition.length; i++) 
-      cells[aliensStartingPosition[i]].classList.remove(alienClass)
+      if (removedAliens[i]) {
+        cells[aliensStartingPosition[i]].classList.remove(alienClass)
+
+      }
   }
   // ---- Alien hit function sound
   const alienDie = document.querySelector('.alien-hit')
@@ -127,7 +129,7 @@ function init() {
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    alienInterwall = setInterval(alienMovement, 10)
+    alienInterwall = setInterval(alienMovement, 1000)
     backgroundMusic()
     
     
@@ -239,11 +241,8 @@ function init() {
         cells[laser].classList.add('bom')        
         setTimeout(()=> cells[laser].classList.remove('bom'), 300)
         clearInterval(laserInterval)        
-        const removedAlien = aliensStartingPosition.filter((alien) => {
-          return alien === cells.indexOf(laser)
-          
-        })
-        removedAlien.push(removedAliens)
+        const removedAlien = aliensStartingPosition.indexOf(laser)
+        removedAliens.push(removedAlien)
         console.log(removedAliens)
 
         
