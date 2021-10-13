@@ -47,7 +47,7 @@ function init() {
   
   //----Alien
 
-
+  let removedAliens = []
   const alienClass = 'alien'  
   let aliensCurrentPositon = []
   const aliensStartingPosition = [
@@ -74,18 +74,21 @@ function init() {
   const alienDie = document.querySelector('.alien-hit')
   function alienHitSound() {
     alienDie.src = 'assets/invaderkilled.wav'
+    alienDie.volume = 0.7
     alienDie.play()
   }
   // ---- shooting sound
   const shootingSound = document.querySelector('.shooting-sound')
   function playerShootingSound() {
     shootingSound.src = 'assets/perfect-fart.wav'
+    shootingSound.volume = 0.7
     shootingSound.play()
   }
   // ---- Player Dying sound
   const playerDeadSound = document.querySelector('.game-over-explosion')
   function playerDieSound() {
     playerDeadSound.src = 'assets/explosion.wav'
+    playerDeadSound.volume = 0.7
     playerDeadSound.play()
   }
   // ---- Game End Sound 
@@ -99,7 +102,7 @@ function init() {
   const backgroundsound = document.querySelector('.background-music')
   function backgroundMusic() {
     backgroundsound.src = 'assets/05_Earth.wav'
-    backgroundsound.volume = 0.15
+    backgroundsound.volume = 0.3
     backgroundsound.play()  
   }
   
@@ -124,7 +127,7 @@ function init() {
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    alienInterwall = setInterval(alienMovement, 100)
+    alienInterwall = setInterval(alienMovement, 10)
     backgroundMusic()
     
     
@@ -137,16 +140,16 @@ function init() {
   function gameOver() {
     clearInterval(alienInterwall)
     scoreDisplay.innerHTML = 'You Lost'
-    body.classList.add('game-over')
+    // body.classList.add('game-over')
     cells[playerCurrentPosition].classList.add('player-die')
     setTimeout(gameEndSound, 1000)
     playerDieSound()
     lives.innerHTML = ' '
     livesDisplay.innerHTML = 'You Are Alien Food'
     backgroundsound.src = ''
-    // const gameOverGif = document.createElement('img')
-    // gameOverGif.src = 'assets/game over 3.gif'
-    // document.body.appendChild(gameOverGif)
+    const gameOverGif = document.createElement('img')
+    gameOverGif.src = 'assets/glasess.gif'
+    document.body.appendChild(gameOverGif)
     
 
 
@@ -234,21 +237,25 @@ function init() {
         cells[laser].classList.remove('laser')
         cells[laser].classList.remove('alien')
         cells[laser].classList.add('bom')        
-        setTimeout(()=> cells[laser].classList.remove('bom'), 200)
+        setTimeout(()=> cells[laser].classList.remove('bom'), 300)
         clearInterval(laserInterval)        
+        const removedAlien = aliensStartingPosition.filter((alien) => {
+          return alien === cells.indexOf(laser)
+          
+        })
+        removedAlien.push(removedAliens)
+        console.log(removedAliens)
 
+        
         scoreDisplay.innerHTML = currentScore
         currentScore += 100
         alienHitSound()
         console.log(aliensStartingPosition)
       }
-      if (cells[laser].classList.contains('alien') && cells[laser].classList.contains('laser')) {
-        cells[laser].classList.remove('alien')
-      }
-      if (cells[aliensStartingPosition].classList.contains('bom') && aliensCurrentPositon) {
-        cells[aliensStartingPosition].classList.remove('bom')
-      }
-    
+      // if (cells[laser].classList.contains('alien') && cells[laser].classList.contains('laser')) {
+      //   cells[laser].classList.remove('alien')
+      // }
+      
     }
     if (e.keyCode === 38) {
       console.log('UP')

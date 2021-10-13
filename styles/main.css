@@ -54,6 +54,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  background: url('/assets/5888d7b2696e39f2be7b972622348632_w200.webp');
   
 }
 .hero {
@@ -95,7 +96,8 @@ body {
 }
 .game-over {
   /* display: none; */
-  background-color: red;
+  
+  background: tomato;
   /* background-size: cover; */
   
 }
