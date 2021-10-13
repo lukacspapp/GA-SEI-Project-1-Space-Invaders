@@ -61,16 +61,18 @@ function init() {
   // ---- Add Alien and Remove Alien
   function addAlien() {
     for (let i = 0; i < aliensStartingPosition.length; i++) 
-      cells[aliensStartingPosition[i]].classList.add(alienClass)
+      if (!removedAliens[i]) {
+        cells[aliensStartingPosition[i]].classList.add(alienClass)
+      }  
+  }  
 
       
-  }
+  
   function removeAlien() {
     for (let i = 0; i < aliensStartingPosition.length; i++) 
-      if (removedAliens[i]) {
-        cells[aliensStartingPosition[i]].classList.remove(alienClass)
+      cells[aliensStartingPosition[i]].classList.remove(alienClass)
 
-      }
+      
   }
   // ---- Alien hit function sound
   const alienDie = document.querySelector('.alien-hit')
@@ -82,7 +84,7 @@ function init() {
   // ---- shooting sound
   const shootingSound = document.querySelector('.shooting-sound')
   function playerShootingSound() {
-    shootingSound.src = 'assets/perfect-fart.wav'
+    shootingSound.src = 'assets/shoot.wav'
     shootingSound.volume = 0.7
     shootingSound.play()
   }
@@ -104,8 +106,14 @@ function init() {
   const backgroundsound = document.querySelector('.background-music')
   function backgroundMusic() {
     backgroundsound.src = 'assets/05_Earth.wav'
-    backgroundsound.volume = 0.3
+    backgroundsound.volume = 0.4
     backgroundsound.play()  
+  }
+  // ----- You Win Sound
+  const youwin = document.querySelector('.you-win')
+  function youWinSound() {
+    youwin.src = 'assets/congratulations-you-are-the-winner.wav' 
+    youwin.play()
   }
   
 
@@ -143,7 +151,7 @@ function init() {
     clearInterval(alienInterwall)
     scoreDisplay.innerHTML = 'You Lost'
     // body.classList.add('game-over')
-    cells[playerCurrentPosition].classList.add('player-die')
+    grid.classList.add('player-die')
     setTimeout(gameEndSound, 1000)
     playerDieSound()
     lives.innerHTML = ' '
@@ -152,13 +160,35 @@ function init() {
     const gameOverGif = document.createElement('img')
     gameOverGif.src = 'assets/glasess.gif'
     document.body.appendChild(gameOverGif)
-    
+    // clearInterval(laserInterval)
 
 
   }
   console.log(playerCurrentPosition)
+  
+  
+  
+  
+  
+  // ---- You Win Fucntion
+  function youWin() {
+    livesDisplay.innerHTML = 'You Win'
+    clearInterval(alienInterwall)
+    backgroundsound.src = ''
+    setTimeout(youWinSound, 500)
+    const youWinGif = document.createElement('img')
+    youWinGif.src
+    
 
 
+
+
+
+
+  }
+
+
+  
   // ---- Add Player and Remove Player 
   function addPlayer(playerPosition) {  
     cells[playerPosition].classList.add(playerClass)
@@ -244,16 +274,18 @@ function init() {
         const removedAlien = aliensStartingPosition.indexOf(laser)
         removedAliens.push(removedAlien)
         console.log(removedAliens)
-
+        if (removedAliens.length === 48) {
+          youWin()
+          // youWinSound()
+          clearInterval(laserInterval)
+        }
         
         scoreDisplay.innerHTML = currentScore
         currentScore += 100
         alienHitSound()
         console.log(aliensStartingPosition)
       }
-      // if (cells[laser].classList.contains('alien') && cells[laser].classList.contains('laser')) {
-      //   cells[laser].classList.remove('alien')
-      // }
+      
       
     }
     if (e.keyCode === 38) {
