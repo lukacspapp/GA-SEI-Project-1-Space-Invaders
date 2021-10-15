@@ -32,7 +32,7 @@
 }
 
 .alien {
-  background: url('/assets/purple\ gif.gif');
+  background: url('../assets/purple\ gif.gif');
   /* background-position: center; */
   /* background-image: url('../assets/367629_invader_space-invaders_game_space\ invaders_icon\ \(2\).png'); */
   /* background-position: center; */
@@ -56,7 +56,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background: url('/assets/5888d7b2696e39f2be7b972622348632_w200.webp');
+  background: url('../assets/5888d7b2696e39f2be7b972622348632_w200.webp');
   
 }
 .hero {
@@ -90,7 +90,7 @@ body {
   /* background-color: greenyellow; */
   border-radius: 20px;
   background: rgb(225, 0, 255) 50%;
-  background: url('/assets/laser\ giphy.gif');
+  background: url('../assets/laser\ giphy.gif');
   background-size: cover;
 }
 .score {
@@ -104,7 +104,7 @@ body {
   
 }
 .bom {
-background: url('/assets/boom\ gif.gif');
+background: url('../assets/boom\ gif.gif');
 background-size: cover;
 /* background-color: rgb(0, 255, 42);
 border-radius: 20px; */
