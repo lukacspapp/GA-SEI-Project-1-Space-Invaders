@@ -137,7 +137,7 @@ function init() {
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    alienInterwall = setInterval(alienMovement, 1000)
+    alienInterwall = setInterval(alienMovement, 600)
     backgroundMusic()
     document.addEventListener('keydown', handleShootingKey)
     document.addEventListener('keydown', handlePlayerKey)
