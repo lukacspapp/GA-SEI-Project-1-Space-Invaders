@@ -27,7 +27,7 @@ function init() {
   const lives = document.querySelector('.life')
   console.log(lives)
   const livesDisplay = document.querySelector('p')
-
+  
 
 
   
@@ -85,7 +85,7 @@ function init() {
   const shootingSound = document.querySelector('.shooting-sound')
   function playerShootingSound() {
     shootingSound.src = 'assets/shoot.wav'
-    shootingSound.volume = 0.7
+    shootingSound.volume = 0.4
     shootingSound.play()
   }
   // ---- Player Dying sound
@@ -106,13 +106,13 @@ function init() {
   const backgroundsound = document.querySelector('.background-music')
   function backgroundMusic() {
     backgroundsound.src = 'assets/05_Earth.wav'
-    backgroundsound.volume = 0.4
+    backgroundsound.volume = 0.6
     backgroundsound.play()  
   }
   // ----- You Win Sound
   const youwin = document.querySelector('.you-win')
   function youWinSound() {
-    youwin.src = 'assets/congratulations-you-are-the-winner.wav' 
+    youwin.src = 'assets/force.wav' 
     youwin.play()
   }
   
@@ -139,8 +139,9 @@ function init() {
     alienMovement()
     alienInterwall = setInterval(alienMovement, 1000)
     backgroundMusic()
-    
-    
+    document.addEventListener('keydown', handleShootingKey)
+    document.addEventListener('keydown', handlePlayerKey)
+
     
     
 
@@ -160,7 +161,9 @@ function init() {
     const gameOverGif = document.createElement('img')
     gameOverGif.src = 'assets/glasess.gif'
     document.body.appendChild(gameOverGif)
+    shootingSound.src = ''
     // clearInterval(laserInterval)
+    
 
 
   }
@@ -175,10 +178,13 @@ function init() {
     livesDisplay.innerHTML = 'You Win'
     clearInterval(alienInterwall)
     backgroundsound.src = ''
-    setTimeout(youWinSound, 500)
+    grid.classList.add('player-die')
+    setTimeout(youWinSound, 800)
     const youWinGif = document.createElement('img')
-    youWinGif.src
-    
+    youWinGif.src = 'assets/winner gipf.gif'
+    document.body.appendChild(youWinGif)
+    shootingSound.src = ''
+    lives.innerHTML = ' '
 
 
 
@@ -247,7 +253,7 @@ function init() {
     for (let i = 0; i < aliensStartingPosition.length; i++) {
       aliensStartingPosition[i] += right 
       
-      console.log(aliensStartingPosition)
+      // console.log(aliensStartingPosition)
     }
     if  (aliensStartingPosition.includes(playerCurrentPosition)) {
       gameOver()
@@ -276,14 +282,13 @@ function init() {
         console.log(removedAliens)
         if (removedAliens.length === 48) {
           youWin()
-          // youWinSound()
+          shootingSound.pause()
           clearInterval(laserInterval)
         }
         
         scoreDisplay.innerHTML = currentScore
         currentScore += 100
         alienHitSound()
-        console.log(aliensStartingPosition)
       }
       
       
@@ -292,15 +297,15 @@ function init() {
       console.log('UP')
       laserInterval = setInterval(handleLaser, 30)
       playerShootingSound()
-      
+    
     }
     
   } 
-  document.addEventListener('keydown', handleShootingKey)
+  // document.addEventListener('keydown', handleShootingKey)
 
   
 
-  document.addEventListener('keydown', handlePlayerKey)
+  // document.addEventListener('keydown', handlePlayerKey)
 
   createGrid(playerCurrentPosition)
   startButton.addEventListener('click', startGame, alienMovement)

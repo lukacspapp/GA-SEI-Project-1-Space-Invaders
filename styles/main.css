@@ -42,6 +42,8 @@
 }
 .player {
   background-image: url('../assets/space-invaders\ \(1\).png');
+  /* background-image: url('../assets/ship\ 22.gif'); */
+  /* background-size: cover; */
   /* background-image: url('../assets/giphy.gif'); */
   /* background: url('../assets/giphy.gif'); */
   background-position: center;
@@ -112,4 +114,12 @@ border-radius: 20px; */
 }
 main {
   display: contents;
+}
+img {
+  width: 30%;
+  height: 30%;
+}
+p {
+  margin-bottom: 5px;
+  margin-top: 15px;
 }
