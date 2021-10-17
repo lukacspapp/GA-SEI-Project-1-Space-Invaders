@@ -84,7 +84,7 @@ function init() {
   // ---- shooting sound
   const shootingSound = document.querySelector('.shooting-sound')
   function playerShootingSound() {
-    shootingSound.src = '..assets/shoot.wav'
+    shootingSound.src = '..assets/perfect-fart.wav'
     shootingSound.volume = 0.4
     shootingSound.play()
   }
@@ -137,7 +137,7 @@ function init() {
     addPlayer(playerCurrentPosition)
     addAlien(aliensStartingPosition)
     alienMovement()
-    alienInterwall = setInterval(alienMovement, 600)
+    alienInterwall = setInterval(alienMovement, 400)
     backgroundMusic()
     document.addEventListener('keydown', handleShootingKey)
     document.addEventListener('keydown', handlePlayerKey)
