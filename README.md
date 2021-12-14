@@ -1,4 +1,4 @@
-# Space Inwaders
+# Space Invaders
 
 A similar recreation of the famous arcade game SPACE INVADERS
 
