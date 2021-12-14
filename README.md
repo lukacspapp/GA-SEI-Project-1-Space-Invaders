@@ -1,4 +1,4 @@
-# Space Invaders
+# Space Invaders - Project 1 GA
 
 A similar recreation of the famous arcade game SPACE INVADERS
 
