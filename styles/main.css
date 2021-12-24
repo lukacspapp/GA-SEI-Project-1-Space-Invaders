@@ -1,6 +1,5 @@
 @font-face {
   font-family: myfont;
-  /* src: url('../assets/zig/zig_____.ttf'); */
   src: url('../assets/bitwise/bitwise.ttf');
 }
 
@@ -33,21 +32,11 @@
 
 .alien {
   background: url('../assets/purple\ gif.gif');
-  /* background-position: center; */
-  /* background-image: url('../assets/367629_invader_space-invaders_game_space\ invaders_icon\ \(2\).png'); */
-  /* background-position: center; */
-  /* border-radius: 2px solid white; */
-  /* background-color: black */
   background-size: cover;
 }
 .player {
-  background-image: url('../assets/space-invaders\ \(1\).png');
-  /* background-image: url('../assets/ship\ 22.gif'); */
-  /* background-size: cover; */
-  /* background-image: url('../assets/giphy.gif'); */
-  /* background: url('../assets/giphy.gif'); */
+  background-image: url('../assets/31-313229_spaceship-pixel-art-spaceship-space-invaders-png-transparent.png');
   background-position: center;
-  /* background-color: black; */
 }
 body {
   margin: auto 0;
@@ -57,6 +46,8 @@ body {
   align-items: center;
   height: 100vh;
   background: url('../assets/5888d7b2696e39f2be7b972622348632_w200.webp');
+  background-color: black;
+  
   
 }
 .hero {
@@ -73,7 +64,6 @@ body {
   border-radius: 5px;
   color: rgb(251, 255, 0);
   background-color: rgba(41, 3, 131, 0.8);
-  /* outline: none; */
   transition: ease-out 0.3s;
   transition: ease-in 0.3s;
   box-shadow: inset 0 0 0 0 rgb(251, 255, 0);
@@ -87,7 +77,6 @@ body {
   box-shadow: inset 300px 0 0 0 rgb(251, 255, 0);
 }
 .laser {
-  /* background-color: greenyellow; */
   border-radius: 20px;
   background: rgb(225, 0, 255) 50%;
   background: url('../assets/laser\ giphy.gif');
@@ -97,17 +86,11 @@ body {
   color: white
 }
 .game-over {
-  /* display: none; */
-  
   background: tomato;
-  /* background-size: cover; */
-  
 }
 .bom {
 background: url('../assets/boom\ gif.gif');
 background-size: cover;
-/* background-color: rgb(0, 255, 42);
-border-radius: 20px; */
 }
 .player-die {
   display: none

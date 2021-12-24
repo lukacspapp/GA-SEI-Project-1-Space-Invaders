@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-unused-vars */
 function init() {
 
   // -----Grid
@@ -77,42 +79,41 @@ function init() {
   // ---- Alien hit function sound
   const alienDie = document.querySelector('.alien-hit')
   function alienHitSound() {
-    alienDie.src = '..assets/invaderkilled.wav'
+    alienDie.src = 'assets/invaderkilled.wav'
     alienDie.volume = 0.7
     alienDie.play()
   }
   // ---- shooting sound
   const shootingSound = document.querySelector('.shooting-sound')
   function playerShootingSound() {
-    shootingSound.src = '..assets/perfect-fart.wav'
+    shootingSound.src = 'assets/perfect-fart.wav'
     shootingSound.volume = 0.4
     shootingSound.play()
   }
   // ---- Player Dying sound
   const playerDeadSound = document.querySelector('.game-over-explosion')
   function playerDieSound() {
-    playerDeadSound.src = '..assets/explosion.wav'
+    playerDeadSound.src = 'sassets/explosion.wav'
     playerDeadSound.volume = 0.7
     playerDeadSound.play()
   }
   // ---- Game End Sound 
   const gameEnd = document.querySelector('.game-end')
   function gameEndSound() {
-    gameEnd.src = '..assets/evillaugh.swf.wav'
-    // gameEnd.src = 'assets/76376__deleted-user-877451__game-over.wav'
+    gameEnd.src = 'assets/evillaugh.swf.wav'
     gameEnd.play()
   }
   // ---- Game background music
   const backgroundsound = document.querySelector('.background-music')
   function backgroundMusic() {
-    backgroundsound.src = '..assets/05_Earth.wav'
+    backgroundsound.src = 'assets/05_Earth.wav'
     backgroundsound.volume = 0.6
     backgroundsound.play()  
   }
   // ----- You Win Sound
   const youwin = document.querySelector('.you-win')
   function youWinSound() {
-    youwin.src = '..assets/force.wav' 
+    youwin.src = 'assets/force.wav' 
     youwin.play()
   }
   
@@ -159,7 +160,7 @@ function init() {
     livesDisplay.innerHTML = 'You Are Alien Food'
     backgroundsound.src = ''
     const gameOverGif = document.createElement('img')
-    gameOverGif.src = '..assets/glasess.gif'
+    gameOverGif.src = 'assets/glasess.gif'
     document.body.appendChild(gameOverGif)
     shootingSound.src = ''
     // clearInterval(laserInterval)
@@ -181,7 +182,7 @@ function init() {
     grid.classList.add('player-die')
     setTimeout(youWinSound, 800)
     const youWinGif = document.createElement('img')
-    youWinGif.src = '..assets/winner gipf.gif'
+    youWinGif.src = 'assets/winner gipf.gif'
     document.body.appendChild(youWinGif)
     shootingSound.src = ''
     lives.innerHTML = ' '
@@ -252,8 +253,6 @@ function init() {
     
     for (let i = 0; i < aliensStartingPosition.length; i++) {
       aliensStartingPosition[i] += right 
-      
-      // console.log(aliensStartingPosition)
     }
     if  (aliensStartingPosition.includes(playerCurrentPosition)) {
       gameOver()
