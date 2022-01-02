@@ -1,6 +1,6 @@
 # SEI-Project-1-Space-Ivaders
 
-<img src='https://i.imgur.com/6iWDfct.png'>
+<img src='https://i.imgur.com/IOkz5Ey.png'>
 
 My first ever coding project. A similar recreation of the famous arcade game SPACE INVADERS
 
