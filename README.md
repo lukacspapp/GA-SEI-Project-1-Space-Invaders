@@ -40,84 +40,114 @@ https://lukacspapp.github.io/SEI-Project-1-Space-Invaders/
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### Day One: 
 
-### Prerequisites
+#### Pseudocoding and Basic Structure
 
-What things you need to install the software and how to install them
+> *Checklist*:
 
-```
-Give examples
-```
+> * Create a 21 x 13 grid
+> * Draw 4 lines of 10 alines
+> * Start the alien movement after 1 second of pushing the start
+> * Draw the spaceship
+> * 4 lines of alien start moving starting to the right side all together
+> * Once they came back to the left side of the grid they should go down one line
+> * Once the lines of aliens reach the line of the spaceship 'Game Over'
+> * Once the player has shot all aliens "You Win"
+> * Collision Detection
+> * Player's score should be displayed at the ends
+> * Sounds
+> * Game over, You Win Logic
+> * Styling
 
-### Installing
 
-A step by step series of examples that tell you how to get a development env running
+The 21 x 13 grid was made by creating 273 divs within the main grid wrapper. The 240 divs would be referred to as 'cells' in this README.
 
-Say what the step will be
+Each cell in the was given an id of its cell number as this would help with Alien's positioning and collision detection.
 
-```
-Give the example
-```
+The movement of a cell is achieved by adding and removing 'occupied' player, alien, laser class. As the aliens, player and the laser moves position - the class is removed from the previous cell and applied to the new one. The the 3 different class has 3 different timer, which means they move in different pace
 
-And repeat
+### Day Two: 
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+#### Drawing aliens and the spaceship
 
 ```
-Give an example
+let removedAliens = []
+  const alienClass = 'alien'  
+  let aliensCurrentPositon = []
+  const aliensStartingPosition = [
+    4,5,6,7,8,9,11,12,13,14,15,16
+    ,25,26,27,28,29,30,32,33,34,35,36,37
+    ,46,47,48,49,50,51,53,54,55,56,57,58,
+    67,68,69,70,71,72,74,75,76,77,78,79
+```    
+
+  ```
+  let playerCurrentPosition = 262
+  const playerClass = 'player'
 ```
 
-### And coding style tests
 
-Explain what these tests test and why
 
-```
-Give an example
-```
+With object class methods, I applied similar methods to all shapes. This means, each Tetromino object had three properties and 2 common methods: 
 
-## Deployment
+createShape and removeShape methods would add and remove classNames based on movements:
 
-Add additional notes about how to deploy this on a live system
+    class Tetrimino {
+        constructor(name, dimensions, className) {
+          this.name = name
+          this.dimensions = dimensions
+          this.className = className
+        }
 
-## Built With
+        createShape() {
+          this.dimensions.forEach(cell => {
+            cells[cell].classList.add(this.className)
+          })
+        }
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+        removeShape() {
+          this.dimensions.forEach(cell => {
+            cells[cell].classList.remove(this.className)
+          })
+        }
 
-## Contributing
+      }
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+They also had their own methods to achieve movement restrictions based on their shape's position.
 
-## Versioning
+An example:
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+    class S extends Tetrimino {
+      constructor(name, dimensions, className) {
+        super(name, dimensions, className)
+      }
+      moveTetriminosS(keycode) {
+        const x = [this.dimensions[2] % width, this.dimensions[1] % width]
+        switch (keycode) {
 
-## Authors
+          case 39:
+            this.removeShape()
+            if (x[1] < width - 1) {
+              this.dimensions = this.dimensions.map(cell => {
+                return cell += 1
+              })
+            }
+            this.createShape()
+            break
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+          case 37:
+            this.removeShape()
+            if (x[0] > 0) {
+              this.dimensions = this.dimensions.map(cell => {
+                return cell -= 1
+              })
+            }
+            this.createShape()
+            break
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+          default:
+            console.log('rotate or move down')
+        }
+    }
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
