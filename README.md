@@ -87,34 +87,56 @@ let removedAliens = []
   const playerClass = 'player'
 ```
 
+Then Here are the functions responsible for the movement of the aliens and the spaceship.
+I used for loops in both functions. 
+
+Alien movement
+
+```
+function addAlien() {
+    for (let i = 0; i < aliensStartingPosition.length; i++) 
+      if (!removedAliens[i]) {
+        cells[aliensStartingPosition[i]].classList.add(alienClass)
+      }  
+  }  
+```
+
+```
+function removeAlien() {
+    for (let i = 0; i < aliensStartingPosition.length; i++) 
+      cells[aliensStartingPosition[i]].classList.remove(alienClass)
+```      
+
+Player movement
+
+```
+function addPlayer(playerPosition) {  
+    cells[playerPosition].classList.add(playerClass)
+  }
+  
+  function removePlayer(playerPosition) {  
+    cells[playerPosition].classList.remove(playerClass)
+  }
 
 
-With object class methods, I applied similar methods to all shapes. This means, each Tetromino object had three properties and 2 common methods: 
+  // ------ Player movement 
+  function handlePlayerKey(event) {
+    // console.log(playerCurrentPosition)
+    const key = event.keyCode
 
-createShape and removeShape methods would add and remove classNames based on movements:
 
-    class Tetrimino {
-        constructor(name, dimensions, className) {
-          this.name = name
-          this.dimensions = dimensions
-          this.className = className
-        }
+    removePlayer(playerCurrentPosition)
 
-        createShape() {
-          this.dimensions.forEach(cell => {
-            cells[cell].classList.add(this.className)
-          })
-        }
-
-        removeShape() {
-          this.dimensions.forEach(cell => {
-            cells[cell].classList.remove(this.className)
-          })
-        }
-
-      }
-
-They also had their own methods to achieve movement restrictions based on their shape's position.
+    if (key === 39 && playerCurrentPosition % height !== 22.300000000000008)  {
+      console.log('RIGHT')
+      playerCurrentPosition++
+    } else if (key === 37 && playerCurrentPosition % height !== 2.300000000000008) {
+      console.log('LEFT')
+      playerCurrentPosition--
+    } 
+    
+    addPlayer(playerCurrentPosition)
+```    
 
 An example:
 
