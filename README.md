@@ -1,4 +1,4 @@
-# SEI-Project-1-Space-Ivaders
+# SEI-Project-1-Space-Ivaders 👽
 
 ***Timeframe***
 
