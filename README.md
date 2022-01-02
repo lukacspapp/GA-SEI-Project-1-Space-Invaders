@@ -31,8 +31,8 @@ https://lukacspapp.github.io/SEI-Project-1-Space-Invaders/
 
 ## Controls
 
-* Click the Start Button or press spacebar to start the game
-* Use the left  ( <img src="https://img.icons8.com/ios/50/000000/long-arrow-left.png" alt="left-arrow" width="10" /> )  and right  ( <img src="https://img.icons8.com/ios/50/000000/long-arrow-right.png" alt="right-arrow" width="10" /> )  arrow keys to move Tetrominoes left and right, respectively.
+* Click the Start Button to start the game
+* Use the left ⬅️ and right ➡️ arrow keys to move the spaceship 
 * Up ( <img src="https://img.icons8.com/ios/50/000000/long-arrow-up.png" alt="up-arrow" width="10" /> ) arrow key rotates the Tetromino in play
 * Down ( <img src="https://img.icons8.com/ios/50/000000/long-arrow-down.png" alt="down-arrow" width="10" /> ) arrow key accelerates the Tetromino's downward motion
 
