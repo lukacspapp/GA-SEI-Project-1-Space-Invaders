@@ -209,6 +209,49 @@ function handleLaser() {
     }
 ```    
 
+### Day Seven, Eight & Nine:
+
+#### Game Over, Game Win Functions
+
+Game Over 
+
+If an alien reaches the spaceship the <code>gameOver</code> function is triggered
+
+```
+function gameOver() {
+    clearInterval(alienInterwall)
+    scoreDisplay.innerHTML = 'You Lost'
+    // body.classList.add('game-over')
+    grid.classList.add('player-die')
+    setTimeout(gameEndSound, 1000)
+    playerDieSound()
+    lives.innerHTML = ' '
+    livesDisplay.innerHTML = 'You Are Alien Food'
+    backgroundsound.src = ''
+    const gameOverGif = document.createElement('img')
+    gameOverGif.src = 'assets/glasess.gif'
+    document.body.appendChild(gameOverGif)
+    shootingSound.src = ''
+```    
+
+You Win
+
+If the player elimanted all aliens the <code>youWin</code> function is triggered
+```
+function youWin() {
+    livesDisplay.innerHTML = 'You Win'
+    clearInterval(alienInterwall)
+    backgroundsound.src = ''
+    grid.classList.add('player-die')
+    setTimeout(youWinSound, 800)
+    const youWinGif = document.createElement('img')
+    youWinGif.src = 'assets/winner gipf.gif'
+    document.body.appendChild(youWinGif)
+    shootingSound.src = ''
+    lives.innerHTML = ' '
+  }
+```  
+  
 
 
 To achieve collision detection, I added one more condition to the if statement: Stop the interval once one of the tetromino cells contain "occupied" class.
