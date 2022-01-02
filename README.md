@@ -269,7 +269,7 @@ function youWin() {
 
 Was definitely a challange to figure out how to move the aliens but with a little help from Mike Soltysiak, SEI Teaching Assistant I was able to figure it out.
 
-## Key Learnings
+## Key Learnings 📝
 
 * **Project Choice**: Intially my lead intructor persuaded me to choose this game as I was having problems understanding array methods at the beggining. I was really happy with the outcome.
 
