@@ -1,6 +1,6 @@
 1. game start button 
   * Create a grid
-    #  15x15 with JS X
+    #  21x13 with JS X
   * should have a display of the players 3 lives
     # Create a lives table and and update it if the player has been hit needs 3 statments - write a fucntion lostLife that will check if the condition the player got hit and update the life result accordingly
   * It should display 4 lines of alien in starting from the top of the grid -> create a start button that will start a delayed timer (how to back the whole page a bit greyed out for )
