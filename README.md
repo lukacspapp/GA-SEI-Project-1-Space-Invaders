@@ -143,7 +143,7 @@ function addPlayer(playerPosition) {
 
 #### Alien movement 
 
-I would say this was the most challenging part of the this project. Figuring out the logic how to move the aliens.
+I would say this was the most challenging part of the this project. Figuring out the logic how to move the aliens. The key part was when I assign the direction to a variable and it is changing whenever the aliens on the side hit either edges.
 
 ```
 function alienMovement () {
@@ -166,7 +166,81 @@ function alienMovement () {
         rightWay = true
       }
     }
+```  
+
+### Day Five, Six & Seven:
+
+#### Collision Detection  
+
+Setting up the laser
+
+```
+function handleShootingKey(e) {
+    let laserInterval
+    let laser = playerCurrentPosition 
 ```    
+
+Shooting and collision with the aliens
+
+```
+function handleLaser() {
+      cells[laser].classList.remove('laser')
+      laser -= 21
+      cells[laser].classList.add('laser')
+      console.log(laser)
+      if (cells[laser].classList.contains('alien')) {
+        cells[laser].classList.remove('laser')
+        cells[laser].classList.remove('alien')
+        cells[laser].classList.add('bom')        
+        setTimeout(()=> cells[laser].classList.remove('bom'), 300)
+        clearInterval(laserInterval)        
+        const removedAlien = aliensStartingPosition.indexOf(laser)
+        removedAliens.push(removedAlien)
+        console.log(removedAliens)
+        if (removedAliens.length === 48) {
+          youWin()
+          shootingSound.pause()
+          clearInterval(laserInterval)
+        }
+        scoreDisplay.innerHTML = currentScore
+        currentScore += 100
+        alienHitSound()
+      }
+    }
+```    
+
+
+
+To achieve collision detection, I added one more condition to the if statement: Stop the interval once one of the tetromino cells contain "occupied" class.
+
+    if (Math.max(...makeShape.dimensions) > (cells.length - 13) || makeShape.dimensions.some(element => cells[element].classList.contains('occupied')))
+
+After this, it would call the <code>checkOccupiedCells</code> function that would take the tetromino above the blocked cells before adding "occupied" class to all of its cells.
+
+
+The if statement also called the <code>clearLine</code> function which would check if a row of occupied cells had "occupied" class in it. 
+
+The start of the row would be checked with the if statement below:
+
+    if (blockedArray[i] % 12 === 0)
+
+
+Then, the "occupied" class would be removed from the eligible row of cells.
+
+
+The <code>blockedRowsDown</code> function executed Line shifting. It made use of an array of arrays containing occupied cells in each row. <code>while</code> the difference between the two separate arrays of occupied cells was more the width + 1, the top occupied row would move down.
+
+    for (let i = blockedRowArrays.length - 1; i >= 1; i--) {
+         const current = Math.min(...blockedRowArrays[i])
+         let previous = Math.max(...blockedRowArrays[i - 1])
+         let difference = current - previous
+         while (difference >= 13) {
+           blockedRowArrays[i - 1] = blockedRowArrays[i - 1].map  (cell => cell + 12)
+           previous = Math.max(...blockedRowArrays[i - 1])
+           difference = current - previous
+         }
+       }
+
 
 An example:
 
