@@ -1,8 +1,42 @@
 # SEI-Project-1-Space-Ivaders
 
-<img src='https://i.imgur.com/IOkz5Ey.png'>
+***Timeframe***
+
+9 days
+
+## Goal:
+
+To create a fully functioning browser-based game of your choice using vanilla JavaScript
+
+## Technologies Used
+
+* HTML5 with HTML5 audio
+* CSS3 
+* JavaScript (ES6)
+* Git
+* Google Fonts
+
+
+# Space Invaders
 
 My first ever coding project. A similar recreation of the famous arcade game SPACE INVADERS
+
+
+<img src='https://i.imgur.com/IOkz5Ey.png'>
+
+### Play deployed version
+
+https://lukacspapp.github.io/SEI-Project-1-Space-Invaders/
+
+
+## Controls
+
+* Click the Start Button or press spacebar to start the game
+* Use the left  ( <img src="https://img.icons8.com/ios/50/000000/long-arrow-left.png" alt="left-arrow" width="10" /> )  and right  ( <img src="https://img.icons8.com/ios/50/000000/long-arrow-right.png" alt="right-arrow" width="10" /> )  arrow keys to move Tetrominoes left and right, respectively.
+* Up ( <img src="https://img.icons8.com/ios/50/000000/long-arrow-up.png" alt="up-arrow" width="10" /> ) arrow key rotates the Tetromino in play
+* Down ( <img src="https://img.icons8.com/ios/50/000000/long-arrow-down.png" alt="down-arrow" width="10" /> ) arrow key accelerates the Tetromino's downward motion
+
+
 
 
 ## Getting Started
