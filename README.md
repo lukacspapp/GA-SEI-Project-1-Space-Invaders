@@ -1,6 +1,9 @@
-# Space Invaders - Project 1 GA
+# SEI-Project-1-Space-Ivaders
 
-A similar recreation of the famous arcade game SPACE INVADERS
+<img src='https://i.imgur.com/6iWDfct.png'>
+
+My first ever coding project. A similar recreation of the famous arcade game SPACE INVADERS
+
 
 ## Getting Started
 
