@@ -252,74 +252,29 @@ function youWin() {
   }
 ```  
   
+## Bugs 🐞
 
+* I could not get the aliens to shoot at the player
+* After the game had ended the user has to reload the page to play again
 
-To achieve collision detection, I added one more condition to the if statement: Stop the interval once one of the tetromino cells contain "occupied" class.
+## Wins 🏆
 
-    if (Math.max(...makeShape.dimensions) > (cells.length - 13) || makeShape.dimensions.some(element => cells[element].classList.contains('occupied')))
+* Got the MVP! 
 
-After this, it would call the <code>checkOccupiedCells</code> function that would take the tetromino above the blocked cells before adding "occupied" class to all of its cells.
+* I had the opportunity to practice array methdos and the basics of vanilla JavaScript
 
+* Styling - I am quite happy with look of the game and I had lots of fun playing with sounds
 
-The if statement also called the <code>clearLine</code> function which would check if a row of occupied cells had "occupied" class in it. 
+## Challenges 🧗‍♂️
 
-The start of the row would be checked with the if statement below:
+Was definitely a challange to figure out how to move the aliens but with a little help from Mike Soltysiak, SEI Teaching Assistant I was able to figure it out.
 
-    if (blockedArray[i] % 12 === 0)
+## Key Learnings
 
+* **Project Choice**: Intially my lead intructor persuaded me to choose this game as I was having problems understanding array methods at the beggining. I was really happy with the outcome.
 
-Then, the "occupied" class would be removed from the eligible row of cells.
+* **JS Fundamentals**: This was my first big coding project, and since it was strong on logic - it helped me solidify basic JS concepts & array methods.
 
-
-The <code>blockedRowsDown</code> function executed Line shifting. It made use of an array of arrays containing occupied cells in each row. <code>while</code> the difference between the two separate arrays of occupied cells was more the width + 1, the top occupied row would move down.
-
-    for (let i = blockedRowArrays.length - 1; i >= 1; i--) {
-         const current = Math.min(...blockedRowArrays[i])
-         let previous = Math.max(...blockedRowArrays[i - 1])
-         let difference = current - previous
-         while (difference >= 13) {
-           blockedRowArrays[i - 1] = blockedRowArrays[i - 1].map  (cell => cell + 12)
-           previous = Math.max(...blockedRowArrays[i - 1])
-           difference = current - previous
-         }
-       }
-
-
-An example:
-
-    class S extends Tetrimino {
-      constructor(name, dimensions, className) {
-        super(name, dimensions, className)
-      }
-      moveTetriminosS(keycode) {
-        const x = [this.dimensions[2] % width, this.dimensions[1] % width]
-        switch (keycode) {
-
-          case 39:
-            this.removeShape()
-            if (x[1] < width - 1) {
-              this.dimensions = this.dimensions.map(cell => {
-                return cell += 1
-              })
-            }
-            this.createShape()
-            break
-
-          case 37:
-            this.removeShape()
-            if (x[0] > 0) {
-              this.dimensions = this.dimensions.map(cell => {
-                return cell -= 1
-              })
-            }
-            this.createShape()
-            break
-
-          default:
-            console.log('rotate or move down')
-        }
-    }
-
-
+* **Knowing when to take a break**: This project taught me that I should step away if I've been trying to solve something for too long and not making progress. The break can give you much-needed rest and you'll likely come back with a better idea on how to solve the problem.
 
 
