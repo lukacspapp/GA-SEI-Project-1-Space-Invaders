@@ -138,6 +138,36 @@ function addPlayer(playerPosition) {
     addPlayer(playerCurrentPosition)
 ```    
 
+### Day Three & Four:
+
+
+#### Alien movement 
+
+I would say this was the most challenging part of the this project. Figuring out the logic how to move the aliens.
+
+```
+function alienMovement () {
+    const rightSide = aliensStartingPosition[aliensStartingPosition.length - 1] % height * width  === 178.8 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 158.40000000000003 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 138.00000000000006 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width  === 117.60000000000005 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width  === 97.20000000000006 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 76.80000000000007 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 56.40000000000008 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 36.000000000000085 || aliensStartingPosition[aliensStartingPosition.length - 1] % height * width === 15.600000000000094
+    const leftSide = aliensStartingPosition[0] % height * width === 252 || aliensStartingPosition[0] % height * width === 231.60000000000002 || aliensStartingPosition[0] % height * width === 211.20000000000002 || aliensStartingPosition[0] % height * width === 190.8 || aliensStartingPosition[0] % height * width === 170.40000000000003 || aliensStartingPosition[0] % height * width === 150.00000000000006 || aliensStartingPosition[0] % height * width === 129.60000000000005 || aliensStartingPosition[0] % height * width === 109.20000000000006
+    removeAlien()
+
+    if (rightSide && rightWay) {
+      for (let i = 0; i < aliensStartingPosition.length; i++) {
+        aliensStartingPosition[i] += 22
+        right = -1
+        rightWay = false
+        
+      } 
+    }
+    if (leftSide && !rightWay) {
+      for (let i = 0; i < aliensStartingPosition.length; i++) {
+        aliensStartingPosition[i] += 20
+        right = 1
+        rightWay = true
+      }
+    }
+```    
+
 An example:
 
     class S extends Tetrimino {
@@ -172,4 +202,7 @@ An example:
             console.log('rotate or move down')
         }
     }
+
+
+
 
