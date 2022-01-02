@@ -13,8 +13,6 @@ To create a fully functioning browser-based game of your choice using vanilla Ja
 * HTML5 with HTML5 audio
 * CSS3 
 * JavaScript (ES6)
-* Git
-* Google Fonts
 
 
 # Space Invaders
