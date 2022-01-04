@@ -1,4 +1,4 @@
-# SEI-Project-1-Space-Ivaders 👽
+# SEI-Project-1-Space-Invaders 👽
 
 ***Timeframe***
 
@@ -48,7 +48,7 @@ https://lukacspapp.github.io/SEI-Project-1-Space-Invaders/
 > * Draw 4 lines of 10 alines
 > * Start the alien movement after 1 second of pushing the start
 > * Draw the spaceship
-> * 4 lines of alien start moving starting to the right side all together
+> * 4 lines of alien start moving to the right side all together
 > * Once they came back to the left side of the grid they should go down one line
 > * Once the lines of aliens reach the line of the spaceship 'Game Over'
 > * Once the player has shot all aliens "You Win"
@@ -61,9 +61,9 @@ https://lukacspapp.github.io/SEI-Project-1-Space-Invaders/
 
 The 21 x 13 grid was made by creating 273 divs within the main grid wrapper. The 240 divs would be referred to as 'cells' in this README.
 
-Each cell in the was given an id of its cell number as this would help with Alien's positioning and collision detection.
+Each cell was given an id of its cell number as this would help with Alien's positioning and collision detection.
 
-The movement of a cell is achieved by adding and removing 'occupied' player, alien, laser class. As the aliens, player and the laser moves position - the class is removed from the previous cell and applied to the new one. The the 3 different class has 3 different timer, which means they move in different pace
+The movement of a cell is achieved by adding and removing the 'occupied' player, alien, laser class. As the aliens, player and the laser moves position - the class is removed from the previous cell and applied to the new one. The 3 different class has 3 different timer, which means they each move at a different pace.
 
 ### Day Two: 
 
@@ -86,7 +86,7 @@ let removedAliens = []
 ```
 
 Then Here are the functions responsible for the movement of the aliens and the spaceship.
-I used for loops in both functions. 
+I used a for loop in both functions. 
 
 Alien movement
 
@@ -141,7 +141,7 @@ function addPlayer(playerPosition) {
 
 #### Alien movement 
 
-I would say this was the most challenging part of the this project. Figuring out the logic how to move the aliens. The key part was when I assign the direction to a variable and it is changing whenever the aliens on the side hit either edges.
+I would say this was the most challenging part of this project. Figuring out the logic of how to move the aliens. The key part was when I assign the direction to a variable and it is changing whenever the aliens on the side hit either edge.
 
 ```
 function alienMovement () {
@@ -259,20 +259,18 @@ function youWin() {
 
 * Got the MVP! 
 
-* I had the opportunity to practice array methdos and the basics of vanilla JavaScript
+* I had the opportunity to practice array methods and the basics of vanilla JavaScript
 
-* Styling - I am quite happy with look of the game and I had lots of fun playing with sounds
+* Styling - I am quite happy with the look of the game and I had lots of fun playing with the sounds
 
 ## Challenges 🧗‍♂️
 
-Was definitely a challange to figure out how to move the aliens but with a little help from Mike Soltysiak, SEI Teaching Assistant I was able to figure it out.
+The biggest challenge was to figure out how to move the aliens but with a little help from Mike Soltysiak, SEI Teaching Assistant I was able to figure it out.
 
 ## Key Learnings 📝
 
-* **Project Choice**: Intially my lead intructor persuaded me to choose this game as I was having problems understanding array methods at the beggining. I was really happy with the outcome.
+* **Project Choice**: Initially my lead instructor persuaded me to choose this game as I was having problems understanding array methods at the beginning. I was really happy with the outcome.
 
 * **JS Fundamentals**: This was my first big coding project, and since it was strong on logic - it helped me solidify basic JS concepts & array methods.
 
-* **Knowing when to take a break**: This project taught me that I should step away if I've been trying to solve something for too long and not making progress. The break can give you much-needed rest and you'll likely come back with a better idea on how to solve the problem.
-
-
+* **Knowing when to take a break**: This project taught me that I should step away if I've been trying to solve something for too long and not making progress. The break can give you much-needed rest and you'll likely come back with a better idea of how to solve the problem.
