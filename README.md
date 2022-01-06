@@ -190,20 +190,17 @@ function alienMovement () {
 
 Setting up the laser
 
-I assigned the <code>playerCurrentPositiont</code> the <code>laser</code> <code>let</code> variable
 
+
+In the h<code>handleShootingKey</code> function I added an event listener to the 🔼 key that start an intervall and play the shooting sound. Within that function I also added the <code>handleLaser</code> function that adds and removes the <code>laser</code> class to the grid and moves up by one row within 30ms. If the one cell contains the <code>alien</code> and the <code>laser</code> class then those classes will be removed, the player points goes up by 100 and the <code>boom</code> class will be added which has the 🎇 gif which is also be showing for 30ms. Then the removed aliens will move the the <code>removedAlien</code> array, when that array reaches 48 aliens the <code>youWin</code> function gets triggered.
 
 
 ```
 function handleShootingKey(e) {
     let laserInterval
     let laser = playerCurrentPosition 
-```    
-
-Then with the <code>handleLaser</code> function added the <code>laser</code> class to
-
-```
-function handleLaser() {
+    
+    function handleLaser() {
       cells[laser].classList.remove('laser')
       laser -= 21
       cells[laser].classList.add('laser')
@@ -222,11 +219,18 @@ function handleLaser() {
           shootingSound.pause()
           clearInterval(laserInterval)
         }
+        
         scoreDisplay.innerHTML = currentScore
         currentScore += 100
         alienHitSound()
       }
     }
+    if (e.keyCode === 38) {
+      console.log('UP')
+      laserInterval = setInterval(handleLaser, 30)
+      playerShootingSound()
+    }
+  } 
 ```    
 
 ### Day Seven, Eight & Nine:
@@ -235,7 +239,8 @@ function handleLaser() {
 
 Game Over Function
 
-If an alien reaches the spaceship the <code>gameOver</code> function is triggered
+If an alien reaches the spaceship the <code>gameOver</code> function is triggered which displayes a funny message, sound and gif at the same time.
+Also it stops the background music, and changes the score display.
 
 ```
 function gameOver() {
@@ -256,7 +261,9 @@ function gameOver() {
 
 You Win function
 
-If the player elimanted all aliens the <code>youWin</code> function is triggered
+If the player elimanted all aliens the <code>youWin</code> function is triggered which displayes a 'You Win' message and start a funny sound and a WINNER gif.
+
+
 ```
 function youWin() {
     livesDisplay.innerHTML = 'You Win'
