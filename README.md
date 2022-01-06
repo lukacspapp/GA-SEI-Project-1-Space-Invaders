@@ -70,7 +70,7 @@ I declared the the starting positions for the aliens by assigning the cell's ID 
 
 I also assigned an empty array for the <code>removedAliens</code> to keep track of the aliens that are eliminated. 
 
-Also I declared a <code>let</code> variable called playerCurrentPosition <code></code> for the player in the 262nd cell that will change according to the key the user is pressing, ◀️ or ▶️. 
+Also I declared a <code>let</code> variable called <code> playerCurrentPosition</code> for the player in the 262nd cell that will change according to the key the user is pressing, ◀️ or ▶️. 
 
 ```
 let removedAliens = []
@@ -156,7 +156,9 @@ I added an event listener for the ◀️ and the ▶️ key by using their codes
 
 I would say this was the most challenging part of this project. Figuring out the logic of how to move the aliens. The key part was when I assign the direction to a variable and it is changing whenever the aliens on the side hit either edge.
 
-I 
+I calculated the left and the right edges of each individual row for by determining the last alien's position. 
+
+Then in the first if statment whenever the last alien is on the right edge and the movement was in the right direction all of the aliens will move down one line, in the second if statment the if the direction is not right and the last alien reach the left edge that all aliens moving down one line.
 
 
 ```
@@ -188,6 +190,8 @@ function alienMovement () {
 
 Setting up the laser
 
+I assigned the <code>playerCurrentPositiont</code> the <code>laser</code> <code>let</code> variable
+
 
 
 ```
@@ -196,7 +200,7 @@ function handleShootingKey(e) {
     let laser = playerCurrentPosition 
 ```    
 
-Shooting and collision with the aliens
+Then with the <code>handleLaser</code> function added the <code>laser</code> class to
 
 ```
 function handleLaser() {
