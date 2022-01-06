@@ -6,8 +6,7 @@
 
 ## Goal:
 
-To create a fully functioning browser-based game of your choice using vanilla JavaScript
-
+To create a fully functioning browser-based game of your choice using vanilla JavaScript.
 ## Technologies Used
 
 * HTML5 with HTML5 audio
@@ -17,8 +16,7 @@ To create a fully functioning browser-based game of your choice using vanilla Ja
 
 # Space Invaders
 
-My first ever coding project. A similar recreation of the famous arcade game SPACE INVADERS
-
+My first ever coding project. A similar recreation of the famous arcade game SPACE INVADERS.
 
 <img src='https://i.imgur.com/IOkz5Ey.png'>
 
@@ -40,12 +38,11 @@ https://lukacspapp.github.io/SEI-Project-1-Space-Invaders/
 
 ### Day One: 
 
-#### Pseudocoding and Basic Structure
+#### Planning and Basic Structure
 
-> *Checklist*:
 
 > * Create a 21 x 13 grid
-> * Draw 4 lines of 10 alines
+> * Draw 4 lines of 10 aliens
 > * Start the alien movement after 1 second of pushing the start
 > * Draw the spaceship
 > * 4 lines of alien start moving to the right side all together
@@ -61,13 +58,19 @@ https://lukacspapp.github.io/SEI-Project-1-Space-Invaders/
 
 The 21 x 13 grid was made by creating 273 divs within the main grid wrapper. The 240 divs would be referred to as 'cells' in this README.
 
-Each cell was given an id of its cell number as this would help with Alien's positioning and collision detection.
+Each cell was given an ID of its cell number as this would help with Alien's positioning and collision detection.
 
-The movement of a cell is achieved by adding and removing the 'occupied' player, alien, laser class. As the aliens, player and the laser moves position - the class is removed from the previous cell and applied to the new one. The 3 different class has 3 different timer, which means they each move at a different pace.
+The movement of a cell is achieved by adding and removing the 'occupied' player, alien, laser class. As the aliens, player and the laser moves position - the class is removed from the previous cell and applied to the new one. The 3 different classes have 3 different timers, which means they each move at a different pace.
 
 ### Day Two: 
 
 #### Drawing aliens and the spaceship
+
+I declared the the starting positions for the aliens by assigning the cell's ID to each alien and storing them in an array
+
+I also assigned an empty array for the <code>removedAliens</code> to keep track of the aliens that are eliminated. 
+
+Also I declared a <code>let</code> variable called playerCurrentPosition <code></code> for the player in the 262nd cell that will change according to the key the user is pressing, ◀️ or ▶️. 
 
 ```
 let removedAliens = []
@@ -78,6 +81,7 @@ let removedAliens = []
     ,25,26,27,28,29,30,32,33,34,35,36,37
     ,46,47,48,49,50,51,53,54,55,56,57,58,
     67,68,69,70,71,72,74,75,76,77,78,79
+   ]
 ```    
 
   ```
@@ -89,6 +93,8 @@ Then Here are the functions responsible for the movement of the aliens and the s
 I used a for loop in both functions. 
 
 Alien movement
+
+I used a for loop and added a the <code>alienClass</code> that has 👾 gif. Also later added the if statment so that the eliminated aliens are stored in the <code>removedAliens</code> array.
 
 ```
 function addAlien() {
@@ -105,7 +111,11 @@ function removeAlien() {
       cells[aliensStartingPosition[i]].classList.remove(alienClass)
 ```      
 
-Player movement
+Player movement function
+
+I added the <code>playerClass</code> to the player's starting position that has the 🚀 gif.
+
+
 
 ```
 function addPlayer(playerPosition) {  
@@ -115,7 +125,10 @@ function addPlayer(playerPosition) {
   function removePlayer(playerPosition) {  
     cells[playerPosition].classList.remove(playerClass)
   }
+```  
+I added an event listener for the ◀️ and the ▶️ key by using their codes on the keyboard and have calculated the the left and right side of the grid so the player is only allowed to move within the grid.
 
+```
 
   // ------ Player movement 
   function handlePlayerKey(event) {
@@ -142,6 +155,9 @@ function addPlayer(playerPosition) {
 #### Alien movement 
 
 I would say this was the most challenging part of this project. Figuring out the logic of how to move the aliens. The key part was when I assign the direction to a variable and it is changing whenever the aliens on the side hit either edge.
+
+I 
+
 
 ```
 function alienMovement () {
@@ -171,6 +187,8 @@ function alienMovement () {
 #### Collision Detection  
 
 Setting up the laser
+
+
 
 ```
 function handleShootingKey(e) {
@@ -211,7 +229,7 @@ function handleLaser() {
 
 #### Game Over, Game Win Functions
 
-Game Over 
+Game Over Function
 
 If an alien reaches the spaceship the <code>gameOver</code> function is triggered
 
@@ -232,7 +250,7 @@ function gameOver() {
     shootingSound.src = ''
 ```    
 
-You Win
+You Win function
 
 If the player elimanted all aliens the <code>youWin</code> function is triggered
 ```
@@ -252,16 +270,16 @@ function youWin() {
   
 ## Bugs 🐞
 
-* I could not get the aliens to shoot at the player
-* After the game had ended the user has to reload the page to play again
+* I could not get the aliens to shoot at the player.
+* After the game had ended the user has to reload the page to play again.
 
 ## Wins 🏆
 
 * Got the MVP! 
 
-* I had the opportunity to practice array methods and the basics of vanilla JavaScript
+* I had the opportunity to practice array methods and the basics of vanilla JavaScript.
 
-* Styling - I am quite happy with the look of the game and I had lots of fun playing with the sounds
+* Styling - I am quite happy with the look of the game and I had lots of fun playing with the sounds.
 
 ## Challenges 🧗‍♂️
 
