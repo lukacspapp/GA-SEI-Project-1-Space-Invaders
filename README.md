@@ -66,7 +66,7 @@ The movement of a cell is achieved by adding and removing the 'occupied' player,
 
 #### Drawing aliens and the spaceship
 
-I declared the the starting positions for the aliens by assigning the cell's ID to each alien and storing them in an array
+I declared the starting positions for the aliens by assigning the cell's ID to each alien and storing them in an array
 
 I also assigned an empty array for the <code>removedAliens</code> to keep track of the aliens that are eliminated. 
 
@@ -126,7 +126,7 @@ function addPlayer(playerPosition) {
     cells[playerPosition].classList.remove(playerClass)
   }
 ```  
-I added an event listener for the ◀️ and the ▶️ key by using their codes on the keyboard and have calculated the the left and right side of the grid so the player is only allowed to move within the grid.
+I added an event listener for the ◀️ and the ▶️ key by using their codes on the keyboard and have calculated the left and right side of the grid so the player is only allowed to move within the grid.
 
 ```
 
@@ -156,9 +156,9 @@ I added an event listener for the ◀️ and the ▶️ key by using their codes
 
 I would say this was the most challenging part of this project. Figuring out the logic of how to move the aliens. The key part was when I assign the direction to a variable and it is changing whenever the aliens on the side hit either edge.
 
-I calculated the left and the right edges of each individual row for by determining the last alien's position. 
+I calculated the left and the right edges of each row by determining the last alien's position. 
 
-Then in the first if statment whenever the last alien is on the right edge and the movement was in the right direction all of the aliens will move down one line, in the second if statment the if the direction is not right and the last alien reach the left edge that all aliens moving down one line.
+Then in the first, if statement whenever the last alien is on the right edge and the movement was in the right direction all of the aliens will move down one line, in the second if statement the if the direction is not right and the last alien reach the left edge that all aliens moving down one line.
 
 
 ```
@@ -239,8 +239,8 @@ function handleShootingKey(e) {
 
 Game Over Function
 
-If an alien reaches the spaceship the <code>gameOver</code> function is triggered which displayes a funny message, sound and gif at the same time.
-Also it stops the background music, and changes the score display.
+If an alien reaches the spaceship the <code>gameOver</code> function is triggered which displays a funny message, sound, and gif at the same time.
+Also, it stops the background music and changes the score display.
 
 ```
 function gameOver() {
@@ -261,7 +261,7 @@ function gameOver() {
 
 You Win function
 
-If the player elimanted all aliens the <code>youWin</code> function is triggered which displayes a 'You Win' message and start a funny sound and a WINNER gif.
+If the player eliminated all aliens the <code>youWin</code> function is triggered which displays a 'You Win' message and starts a funny sound and a WINNER gif.
 
 
 ```
@@ -303,3 +303,5 @@ The biggest challenge was to figure out how to move the aliens but with a little
 * **JS Fundamentals**: This was my first big coding project, and since it was strong on logic - it helped me solidify basic JS concepts & array methods.
 
 * **Knowing when to take a break**: This project taught me that I should step away if I've been trying to solve something for too long and not making progress. The break can give you much-needed rest and you'll likely come back with a better idea of how to solve the problem.
+
+
