@@ -6,7 +6,7 @@
 
 ## Goal:
 
-To create a fully functioning browser-based game of your choice using vanilla JavaScript.
+To create a fully functioning browser-based game of your choice using Vanilla JavaScript.
 ## Technologies Used
 
 * HTML5 with HTML5 audio
@@ -56,7 +56,7 @@ https://lukacspapp.github.io/SEI-Project-1-Space-Invaders/
 > * Styling
 
 
-The 21 x 13 grid was made by creating 273 divs within the main grid wrapper. The 240 divs would be referred to as 'cells' in this README.
+The 21 x 13 grid was made by creating 273 divs within the main grid wrapper. The 240 divs would be referred to as 'cells' in this ReadMe.
 
 Each cell was given an ID of its cell number as this would help with Alien's positioning and collision detection.
 
@@ -66,7 +66,7 @@ The movement of a cell is achieved by adding and removing the 'occupied' player,
 
 #### Drawing aliens and the spaceship
 
-I declared the starting positions for the aliens by assigning the cell's ID to each alien and storing them in an array
+I declared the starting positions for the aliens by assigning the cell's ID to each alien and storing them in an array.
 
 I also assigned an empty array for the <code>removedAliens</code> to keep track of the aliens that are eliminated. 
 
@@ -94,7 +94,7 @@ I used a for loop in both functions.
 
 Alien movement
 
-I used a for loop and added a the <code>alienClass</code> that has 👾 gif. Also later added the if statment so that the eliminated aliens are stored in the <code>removedAliens</code> array.
+I used a for loop and added a the <code>alienClass</code> that has 👾 gif. Also later added the if statement so that the eliminated aliens are stored in the <code>removedAliens</code> array.
 
 ```
 function addAlien() {
@@ -158,7 +158,7 @@ I would say this was the most challenging part of this project. Figuring out the
 
 I calculated the left and the right edges of each row by determining the last alien's position. 
 
-Then in the first, if statement whenever the last alien is on the right edge and the movement was in the right direction all of the aliens will move down one line, in the second if statement the if the direction is not right and the last alien reach the left edge that all aliens moving down one line.
+Then in the first, if statement whenever the last alien is on the right edge and the movement was in the right direction all of the aliens will move down one line, in the second if statement the if the direction is not right and the last alien reaches the left edge that all aliens are moving down one line.
 
 
 ```
@@ -261,7 +261,7 @@ function gameOver() {
 
 You Win function
 
-If the player eliminated all aliens the <code>youWin</code> function is triggered which displays a 'You Win' message and starts a funny sound and a WINNER gif.
+If the player eliminates all aliens the <code>youWin</code> function is triggered which displays a 'You Win' message and starts a funny sound and a WINNER gif.
 
 
 ```
@@ -288,7 +288,7 @@ function youWin() {
 
 * Got the MVP! 
 
-* I had the opportunity to practice array methods and the basics of vanilla JavaScript.
+* I had the opportunity to practice array methods and the basics of Vanilla JavaScript.
 
 * Styling - I am quite happy with the look of the game and I had lots of fun playing with the sounds.
 
@@ -303,5 +303,3 @@ The biggest challenge was to figure out how to move the aliens but with a little
 * **JS Fundamentals**: This was my first big coding project, and since it was strong on logic - it helped me solidify basic JS concepts & array methods.
 
 * **Knowing when to take a break**: This project taught me that I should step away if I've been trying to solve something for too long and not making progress. The break can give you much-needed rest and you'll likely come back with a better idea of how to solve the problem.
-
-
