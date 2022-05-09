@@ -187,10 +187,10 @@ function init() {
     // console.log(playerCurrentPosition)
     const key = event.key
     removePlayer(playerCurrentPosition)
-    if (key === 'RIGHT' && playerCurrentPosition % height !== 22.300000000000008)  {
+    if (key === 'd' && playerCurrentPosition % height !== 22.300000000000008)  {
       console.log('RIGHT')
       playerCurrentPosition++
-    } else if (key === 'LEFT' && playerCurrentPosition % height !== 2.300000000000008) {
+    } else if (key === 'a' && playerCurrentPosition % height !== 2.300000000000008) {
       console.log('LEFT')
       playerCurrentPosition--
     } 
@@ -256,7 +256,7 @@ function init() {
       
       
     }
-    if (e.key === 'UP')  {
+    if (e.key === 'rightarrow')  {
       console.log('UP')
       laserInterval = setInterval(handleLaser, 30)
       playerShootingSound()
