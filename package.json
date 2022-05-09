@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "typecript": "^0.0.1-security",
+    "typescript": "^4.6.4"
+  }
+}
